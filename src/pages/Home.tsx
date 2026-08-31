@@ -37,9 +37,11 @@ export default function Home() {
       {/* Hero */}
       <section className="relative overflow-hidden bg-navy-700">
         <img
-          src="https://images.unsplash.com/photo-1509233725247-49e657c54213?auto=format&fit=crop&w=1800&q=80"
+          src="https://images.unsplash.com/photo-1589715718565-223fdf9b7cd4?auto=format&fit=crop&w=1600&q=55"
           alt="Lake Kivu shoreline"
           className="absolute inset-0 h-full w-full object-cover"
+          fetchPriority="high"
+          decoding="async"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-navy-800 via-navy-800/85 to-navy-700/30" />
 
@@ -87,19 +89,25 @@ export default function Home() {
           <div className="grid gap-10 p-8 sm:p-12 lg:grid-cols-2 lg:items-center">
             <div className="grid grid-cols-3 gap-3">
               <img
-                src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=600&q=80"
+                src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=500&q=55"
                 alt="Product on display"
                 className="col-span-1 h-40 w-full rounded-xl object-cover sm:h-56"
+                loading="lazy"
+                decoding="async"
               />
               <img
-                src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=80"
+                src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=500&q=55"
                 alt="Property development"
                 className="col-span-1 h-40 w-full rounded-xl object-cover sm:h-56"
+                loading="lazy"
+                decoding="async"
               />
               <img
-                src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=600&q=80"
+                src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=500&q=55"
                 alt="Hotel room"
                 className="col-span-1 h-40 w-full rounded-xl object-cover sm:h-56"
+                loading="lazy"
+                decoding="async"
               />
             </div>
 

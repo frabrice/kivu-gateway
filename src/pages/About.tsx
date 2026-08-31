@@ -24,15 +24,17 @@ export default function About() {
       <PageHero
         title="About Kivu Gateway"
         subtitle="We are the connection point between people, businesses and opportunities across the Great Lakes region."
-        image="https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1600&q=80"
+        image="https://images.unsplash.com/photo-1514548383638-cef9251a73ec?auto=format&fit=crop&w=1400&q=45"
       />
 
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <img
-            src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1200&q=80"
+            src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1000&q=55"
             alt="Kigali skyline"
             className="h-72 w-full rounded-2xl object-cover shadow-card sm:h-96"
+            loading="lazy"
+            decoding="async"
           />
           <div>
             <SectionHeading

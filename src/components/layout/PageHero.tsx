@@ -11,7 +11,13 @@ type PageHeroProps = {
 export default function PageHero({ eyebrow, title, subtitle, image }: PageHeroProps) {
   return (
     <div className="relative overflow-hidden bg-navy-700">
-      <img src={image} alt="" className="absolute inset-0 h-full w-full object-cover opacity-40" />
+      <img
+        src={image}
+        alt=""
+        className="absolute inset-0 h-full w-full object-cover opacity-40"
+        fetchPriority="high"
+        decoding="async"
+      />
       <div className="absolute inset-0 bg-gradient-to-r from-navy-800/95 via-navy-700/85 to-navy-600/60" />
       <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8">
         <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-gold-500">

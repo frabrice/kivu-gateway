@@ -11,7 +11,7 @@ export default function Tourism() {
       <PageHero
         title="Tourism & Experiences"
         subtitle="Discover the Great Lakes through nature, culture, adventure and authentic local experiences across Rwanda and Eastern DRC."
-        image="https://images.unsplash.com/photo-1547970810-dc1eac37d174?auto=format&fit=crop&w=1600&q=80"
+        image="https://images.unsplash.com/photo-1547970810-dc1eac37d174?auto=format&fit=crop&w=1400&q=45"
       />
 
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
@@ -30,6 +30,8 @@ export default function Tourism() {
                 src={destination.image}
                 alt={destination.name}
                 className="h-64 w-full rounded-2xl object-cover shadow-card sm:h-80"
+                loading="lazy"
+                decoding="async"
               />
               <div>
                 <div className="flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-gold-600">

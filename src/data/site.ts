@@ -37,35 +37,35 @@ export const PILLARS: Pillar[] = [
     title: 'Business Connections',
     short: 'We connect entrepreneurs, investors and companies with trusted local partners and opportunities.',
     to: '/services#business',
-    image: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80',
+    image: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1000&q=55',
   },
   {
     id: 'trade',
     title: 'Trade & Sourcing',
     short: 'Connecting buyers, suppliers and businesses across Rwanda and Eastern DRC.',
     to: '/services#trade',
-    image: 'https://images.unsplash.com/photo-1494412651409-8963ce7935a7?auto=format&fit=crop&w=1200&q=80',
+    image: 'https://images.unsplash.com/photo-1494412651409-8963ce7935a7?auto=format&fit=crop&w=1000&q=42',
   },
   {
     id: 'property',
     title: 'Real Estate & Property',
     short: 'Property sourcing, sales, rentals and professional property management.',
     to: '/services#property',
-    image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80',
+    image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1000&q=55',
   },
   {
     id: 'hospitality',
     title: 'Hospitality',
     short: 'Quality accommodation, dining and hospitality services for visitors, businesses and property owners.',
     to: '/services#hospitality',
-    image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80',
+    image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1000&q=55',
   },
   {
     id: 'tourism',
     title: 'Tourism & Experiences',
     short: 'Discover the Great Lakes through nature, culture, adventure and authentic local experiences.',
     to: '/tourism',
-    image: 'https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=1200&q=80',
+    image: 'https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=1000&q=55',
   },
 ]
 
@@ -118,7 +118,7 @@ export const DESTINATIONS: Destination[] = [
     id: 'rubavu-gisenyi',
     name: 'Rubavu / Gisenyi',
     tags: 'Lake Kivu · Beaches · Restaurants · Hotels',
-    image: 'https://images.unsplash.com/photo-1509233725247-49e657c54213?auto=format&fit=crop&w=1200&q=80',
+    image: 'https://images.unsplash.com/photo-1675793049324-32d4932eafff?auto=format&fit=crop&w=1000&q=55',
     description:
       'Rwanda’s lakeside resort town on the shores of Lake Kivu, known for its beaches, waterfront restaurants and relaxed border-town energy with Goma just across the water.',
     activities: ['Lake Kivu beaches', 'Waterfront dining', 'Boat trips', 'Border-town culture'],
@@ -127,7 +127,7 @@ export const DESTINATIONS: Destination[] = [
     id: 'goma',
     name: 'Goma',
     tags: 'Business · Culture · Lake Kivu Life',
-    image: 'https://images.unsplash.com/photo-1483450388369-9ed95738483c?auto=format&fit=crop&w=1200&q=80',
+    image: 'https://images.unsplash.com/photo-1483450388369-9ed95738483c?auto=format&fit=crop&w=1000&q=55',
     description:
       'A major Eastern DRC commercial hub on Lake Kivu, blending business opportunity with vibrant Congolese culture, music and markets.',
     activities: ['Business networking', 'Local markets', 'Music & nightlife', 'Lakeside views'],
@@ -136,7 +136,7 @@ export const DESTINATIONS: Destination[] = [
     id: 'musanze',
     name: 'Musanze',
     tags: 'Volcanoes · Nature · Adventure · Hospitality',
-    image: 'https://images.unsplash.com/photo-1547970810-dc1eac37d174?auto=format&fit=crop&w=1200&q=80',
+    image: 'https://images.unsplash.com/photo-1547970810-dc1eac37d174?auto=format&fit=crop&w=1000&q=55',
     description:
       'Gateway to the Virunga volcanoes, Musanze is Rwanda’s adventure capital — gorilla trekking, volcano hikes and a fast-growing hospitality scene.',
     activities: ['Gorilla trekking', 'Volcano hikes', 'Cave exploration', 'Lodges & hospitality'],
@@ -145,7 +145,7 @@ export const DESTINATIONS: Destination[] = [
     id: 'karongi',
     name: 'Karongi',
     tags: 'Relaxation · Water Activities',
-    image: 'https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1200&q=80',
+    image: 'https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1000&q=55',
     description:
       'A quieter stretch of Lake Kivu known for calm bays, island boat trips and relaxed lakeside stays — popular for retreats and weekend getaways.',
     activities: ['Kayaking', 'Island boat trips', 'Lakeside retreats', 'Swimming'],
@@ -154,7 +154,7 @@ export const DESTINATIONS: Destination[] = [
     id: 'gishwati',
     name: 'Gishwati',
     tags: 'Nature · Hiking · Wildlife',
-    image: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1200&q=80',
+    image: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1000&q=42',
     description:
       'Part of the Gishwati-Mukura rainforest landscape, offering guided forest hikes, chimpanzee tracking and community-based tourism.',
     activities: ['Forest hiking', 'Chimpanzee tracking', 'Birdwatching', 'Community tourism'],
@@ -163,7 +163,7 @@ export const DESTINATIONS: Destination[] = [
     id: 'nyungwe',
     name: 'Nyungwe',
     tags: 'Forest · Primates · Adventure',
-    image: 'https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=1200&q=80',
+    image: 'https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=1000&q=55',
     description:
       'One of Africa’s oldest rainforests, home to chimpanzees and colobus monkeys, a canopy walkway, and waterfall trails through misty highland forest.',
     activities: ['Canopy walk', 'Primate tracking', 'Waterfall trails', 'Tea plantation tours'],

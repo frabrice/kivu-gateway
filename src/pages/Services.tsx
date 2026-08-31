@@ -41,7 +41,13 @@ function ServiceSection({
     <section id={id} className={`scroll-mt-20 py-16 ${tinted ? 'bg-navy-50' : 'bg-white'}`}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className={`grid items-center gap-10 lg:grid-cols-2 ${reverse ? 'lg:[&>*:first-child]:order-2' : ''}`}>
-          <img src={image} alt={title} className="h-64 w-full rounded-2xl object-cover shadow-card sm:h-80" />
+          <img
+            src={image}
+            alt={title}
+            className="h-64 w-full rounded-2xl object-cover shadow-card sm:h-80"
+            loading="lazy"
+            decoding="async"
+          />
 
           <div>
             <span className="flex h-12 w-12 items-center justify-center rounded-full bg-navy-600">
@@ -64,7 +70,13 @@ function ServiceSection({
           <div className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-3">
             {cards.map((card) => (
               <div key={card.title} className="overflow-hidden rounded-xl border border-navy-100 bg-white shadow-card">
-                <img src={card.image} alt={card.title} className="h-36 w-full object-cover" />
+                <img
+                  src={card.image}
+                  alt={card.title}
+                  className="h-36 w-full object-cover"
+                  loading="lazy"
+                  decoding="async"
+                />
                 <div className="p-4">
                   <div className="text-sm font-bold text-navy-700">{card.title}</div>
                   <div className="mt-1 text-xs text-navy-400">{card.detail}</div>
@@ -84,7 +96,7 @@ export default function Services() {
       <PageHero
         title="Our Services"
         subtitle="Business Connections, Trade &amp; Sourcing, Real Estate &amp; Property and Hospitality — everything you need to do business across the Great Lakes."
-        image="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80"
+        image="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1400&q=45"
       />
 
       <ServiceSection
@@ -101,11 +113,11 @@ export default function Services() {
         ]}
         cardsLabel="Who We Connect"
         cards={[
-          { title: 'Investors & Funds', detail: 'Deal flow and vetted local opportunities.', image: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=600&q=80' },
-          { title: 'SMEs & Startups', detail: 'Partners, distributors and capital.', image: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=600&q=80' },
-          { title: 'Corporates & NGOs', detail: 'Local representation and partnerships.', image: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=600&q=80' },
+          { title: 'Investors & Funds', detail: 'Deal flow and vetted local opportunities.', image: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=500&q=55' },
+          { title: 'SMEs & Startups', detail: 'Partners, distributors and capital.', image: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=500&q=55' },
+          { title: 'Corporates & NGOs', detail: 'Local representation and partnerships.', image: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=500&q=55' },
         ]}
-        image="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80"
+        image="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1000&q=55"
       />
 
       <ServiceSection
@@ -122,11 +134,11 @@ export default function Services() {
         ]}
         cardsLabel="Sectors We Cover"
         cards={[
-          { title: 'Agriculture & Food', detail: 'Produce, staples and processed goods.', image: 'https://images.unsplash.com/photo-1500651230702-0e2d8a49d4ad?auto=format&fit=crop&w=600&q=80' },
-          { title: 'Construction Materials', detail: 'Building supplies and hardware.', image: 'https://images.unsplash.com/photo-1541976590-713941681591?auto=format&fit=crop&w=600&q=80' },
-          { title: 'Consumer Goods', detail: 'Retail-ready product sourcing.', image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=600&q=80' },
+          { title: 'Agriculture & Food', detail: 'Produce, staples and processed goods.', image: 'https://images.unsplash.com/photo-1500651230702-0e2d8a49d4ad?auto=format&fit=crop&w=500&q=55' },
+          { title: 'Construction Materials', detail: 'Building supplies and hardware.', image: 'https://images.unsplash.com/photo-1541976590-713941681591?auto=format&fit=crop&w=500&q=55' },
+          { title: 'Consumer Goods', detail: 'Retail-ready product sourcing.', image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=500&q=55' },
         ]}
-        image="https://images.unsplash.com/photo-1494412651409-8963ce7935a7?auto=format&fit=crop&w=1200&q=80"
+        image="https://images.unsplash.com/photo-1494412651409-8963ce7935a7?auto=format&fit=crop&w=1000&q=42"
         reverse
         tinted
       />
@@ -145,11 +157,11 @@ export default function Services() {
         ]}
         cardsLabel="Featured Listings (Sample)"
         cards={[
-          { title: 'Modern Apartment — Kigali', detail: 'Kimihurura · Contact for pricing', image: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=600&q=80' },
-          { title: 'Commercial Plot — Rubavu', detail: 'Prime location · Contact for pricing', image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80' },
-          { title: 'Lakeside Villa — Karongi', detail: 'Lake Kivu views · Contact for pricing', image: 'https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=600&q=80' },
+          { title: 'Modern Apartment — Kigali', detail: 'Kimihurura · Contact for pricing', image: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=500&q=55' },
+          { title: 'Commercial Plot — Rubavu', detail: 'Prime location · Contact for pricing', image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=500&q=55' },
+          { title: 'Lakeside Villa — Karongi', detail: 'Lake Kivu views · Contact for pricing', image: 'https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=500&q=55' },
         ]}
-        image="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80"
+        image="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1000&q=55"
       />
 
       <ServiceSection
@@ -166,11 +178,11 @@ export default function Services() {
         ]}
         cardsLabel="Featured Partners (Sample)"
         cards={[
-          { title: 'Boutique Lake Hotel', detail: 'Rubavu / Gisenyi', image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=600&q=80' },
-          { title: 'Lakeside Restaurant', detail: 'Karongi', image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=600&q=80' },
-          { title: 'Business Guesthouse', detail: 'Kigali', image: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=600&q=80' },
+          { title: 'Boutique Lake Hotel', detail: 'Rubavu / Gisenyi', image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=500&q=55' },
+          { title: 'Lakeside Restaurant', detail: 'Karongi', image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=500&q=55' },
+          { title: 'Business Guesthouse', detail: 'Kigali', image: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=500&q=55' },
         ]}
-        image="https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=1200&q=80"
+        image="https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=1000&q=55"
         reverse
         tinted
       />

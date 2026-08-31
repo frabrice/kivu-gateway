@@ -21,6 +21,7 @@ export default function DestinationCard({ destination, to }: DestinationCardProp
         alt={destination.name}
         className="h-full w-full object-cover transition duration-300 group-hover:scale-105"
         loading="lazy"
+        decoding="async"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-navy-800/90 via-navy-800/10 to-transparent" />
       <div className="absolute inset-x-0 bottom-0 p-4 text-white">

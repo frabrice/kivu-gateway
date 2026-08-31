@@ -17,7 +17,7 @@ export default function MarketAccess() {
       <PageHero
         title="Market Access & Activation"
         subtitle="We help businesses, products, properties and hospitality brands enter, launch and grow in the Great Lakes market."
-        image="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1600&q=80"
+        image="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1400&q=45"
       />
 
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
