@@ -20,8 +20,8 @@ export default function PageHero({ eyebrow, title, subtitle, image }: PageHeroPr
       />
       <div className="absolute inset-0 bg-gradient-to-r from-navy-800/95 via-navy-700/85 to-navy-600/60" />
       <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8">
-        <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-gold-500">
-          <Link to="/" className="text-navy-100 hover:text-gold-400">Home</Link>
+        <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-blue-500">
+          <Link to="/" className="text-navy-100 hover:text-blue-400">Home</Link>
           <ChevronRight size={14} />
           <span>{eyebrow ?? title}</span>
         </div>

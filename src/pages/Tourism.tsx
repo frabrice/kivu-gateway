@@ -34,7 +34,7 @@ export default function Tourism() {
                 decoding="async"
               />
               <div>
-                <div className="flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-gold-600">
+                <div className="flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-blue-600">
                   <MapPin size={16} />
                   {destination.name}
                 </div>
@@ -52,7 +52,7 @@ export default function Tourism() {
                 </ul>
                 <Link
                   to="/contact"
-                  className="mt-6 inline-flex items-center gap-1.5 text-sm font-bold uppercase tracking-wide text-gold-600 hover:text-gold-700"
+                  className="mt-6 inline-flex items-center gap-1.5 text-sm font-bold uppercase tracking-wide text-blue-600 hover:text-blue-700"
                 >
                   Plan a Visit <ArrowRight size={15} />
                 </Link>
@@ -64,14 +64,14 @@ export default function Tourism() {
 
       <section className="bg-navy-50 py-16">
         <div className="mx-auto max-w-5xl px-4 text-center sm:px-6 lg:px-8">
-          <Compass size={32} className="mx-auto text-gold-600" />
+          <Compass size={32} className="mx-auto text-blue-600" />
           <SectionHeading
             title="Not sure where to start?"
             description="Tell us your dates, interests and budget — nature, culture, adventure or relaxation — and we'll curate a Great Lakes itinerary for you."
           />
           <Link
             to="/contact"
-            className="mt-6 inline-flex items-center gap-2 rounded-md bg-navy-600 px-7 py-3 text-sm font-bold uppercase tracking-wide text-white transition hover:bg-navy-500"
+            className="mt-6 inline-flex items-center gap-2 rounded-md bg-navy-600 px-7 py-3 text-sm font-bold text-white transition hover:bg-navy-500"
           >
             Curate My Experience <ArrowRight size={16} />
           </Link>

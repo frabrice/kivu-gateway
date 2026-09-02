@@ -31,36 +31,36 @@ export default function Contact() {
             <ul className="mt-8 space-y-5">
               <li className="flex items-start gap-3">
                 <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-navy-600">
-                  <Phone size={17} className="text-gold-500" />
+                  <Phone size={17} className="text-blue-500" />
                 </span>
                 <div>
                   <div className="text-sm font-bold text-navy-700">Call Us</div>
-                  <a href={CONTACT.phoneHref} className="text-sm text-navy-500 hover:text-gold-600">{CONTACT.phoneDisplay}</a>
+                  <a href={CONTACT.phoneHref} className="text-sm text-navy-500 hover:text-blue-600">{CONTACT.phoneDisplay}</a>
                 </div>
               </li>
               <li className="flex items-start gap-3">
                 <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-navy-600">
-                  <MessageCircle size={17} className="text-gold-500" />
+                  <MessageCircle size={17} className="text-blue-500" />
                 </span>
                 <div>
                   <div className="text-sm font-bold text-navy-700">WhatsApp</div>
-                  <a href={CONTACT.whatsappHref} target="_blank" rel="noopener noreferrer" className="text-sm text-navy-500 hover:text-gold-600">
+                  <a href={CONTACT.whatsappHref} target="_blank" rel="noopener noreferrer" className="text-sm text-navy-500 hover:text-blue-600">
                     Chat with our team
                   </a>
                 </div>
               </li>
               <li className="flex items-start gap-3">
                 <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-navy-600">
-                  <Mail size={17} className="text-gold-500" />
+                  <Mail size={17} className="text-blue-500" />
                 </span>
                 <div>
                   <div className="text-sm font-bold text-navy-700">Email</div>
-                  <a href={`mailto:${CONTACT.email}`} className="text-sm text-navy-500 hover:text-gold-600">{CONTACT.email}</a>
+                  <a href={`mailto:${CONTACT.email}`} className="text-sm text-navy-500 hover:text-blue-600">{CONTACT.email}</a>
                 </div>
               </li>
               <li className="flex items-start gap-3">
                 <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-navy-600">
-                  <MapPin size={17} className="text-gold-500" />
+                  <MapPin size={17} className="text-blue-500" />
                 </span>
                 <div>
                   <div className="text-sm font-bold text-navy-700">Office</div>
@@ -69,7 +69,7 @@ export default function Contact() {
               </li>
               <li className="flex items-start gap-3">
                 <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-navy-600">
-                  <Clock size={17} className="text-gold-500" />
+                  <Clock size={17} className="text-blue-500" />
                 </span>
                 <div>
                   <div className="text-sm font-bold text-navy-700">Office Hours</div>
@@ -90,7 +90,7 @@ export default function Contact() {
             <div className="rounded-2xl border border-navy-100 bg-white p-6 shadow-card sm:p-8">
               {submitted ? (
                 <div className="flex flex-col items-center justify-center py-16 text-center">
-                  <CheckCircle2 size={40} className="text-gold-600" />
+                  <CheckCircle2 size={40} className="text-blue-600" />
                   <h3 className="mt-4 font-heading text-lg font-bold text-navy-700">Thanks — message ready</h3>
                   <p className="mt-2 max-w-sm text-sm text-navy-400">
                     This is a demo form. Once your inbox/CRM is connected, submissions like this will reach your
@@ -109,7 +109,7 @@ export default function Contact() {
                         required
                         type="text"
                         placeholder="Your name"
-                        className="mt-1.5 w-full rounded-md border border-navy-100 px-4 py-2.5 text-sm outline-none focus:border-gold-500"
+                        className="mt-1.5 w-full rounded-md border border-navy-100 px-4 py-2.5 text-sm outline-none focus:border-blue-500"
                       />
                     </div>
                     <div>
@@ -118,7 +118,7 @@ export default function Contact() {
                         required
                         type="email"
                         placeholder="you@example.com"
-                        className="mt-1.5 w-full rounded-md border border-navy-100 px-4 py-2.5 text-sm outline-none focus:border-gold-500"
+                        className="mt-1.5 w-full rounded-md border border-navy-100 px-4 py-2.5 text-sm outline-none focus:border-blue-500"
                       />
                     </div>
                   </div>
@@ -128,7 +128,7 @@ export default function Contact() {
                     <select
                       required
                       defaultValue=""
-                      className="mt-1.5 w-full rounded-md border border-navy-100 px-4 py-2.5 text-sm outline-none focus:border-gold-500"
+                      className="mt-1.5 w-full rounded-md border border-navy-100 px-4 py-2.5 text-sm outline-none focus:border-blue-500"
                     >
                       <option value="" disabled>Select a topic</option>
                       {TOPICS.map((topic) => (
@@ -143,13 +143,13 @@ export default function Contact() {
                       required
                       rows={5}
                       placeholder="Tell us a bit about what you're looking for..."
-                      className="mt-1.5 w-full rounded-md border border-navy-100 px-4 py-2.5 text-sm outline-none focus:border-gold-500"
+                      className="mt-1.5 w-full rounded-md border border-navy-100 px-4 py-2.5 text-sm outline-none focus:border-blue-500"
                     />
                   </div>
 
                   <button
                     type="submit"
-                    className="inline-flex items-center justify-center rounded-md bg-gold-500 px-7 py-3 text-sm font-bold uppercase tracking-wide text-navy-800 transition hover:bg-gold-400"
+                    className="inline-flex items-center justify-center rounded-md bg-blue-500 px-7 py-3 text-sm font-bold text-white transition hover:bg-blue-600"
                   >
                     Send Message
                   </button>

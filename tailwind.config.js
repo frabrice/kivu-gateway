@@ -15,14 +15,15 @@ export default {
           800: '#071627',
           900: '#040D18',
         },
-        gold: {
-          DEFAULT: '#E8A93A',
-          50: '#FDF6E9',
-          100: '#FAEBC9',
-          400: '#EDBB5E',
-          500: '#E8A93A',
-          600: '#CC8F23',
-          700: '#A6741B',
+        blue: {
+          DEFAULT: '#2F6FED',
+          50: '#EDF3FF',
+          100: '#D7E4FF',
+          300: '#8FB0F5',
+          400: '#5A8AF0',
+          500: '#2F6FED',
+          600: '#2358CC',
+          700: '#1B449E',
         },
       },
       fontFamily: {

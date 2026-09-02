@@ -4,19 +4,19 @@ type LogoProps = {
   variant?: 'light' | 'dark'
 }
 
-export default function Logo({ variant = 'light' }: LogoProps) {
-  const sub = variant === 'light' ? 'text-navy-100' : 'text-navy-400'
+export default function Logo({ variant = 'dark' }: LogoProps) {
+  const isLight = variant === 'light'
   return (
     <Link to="/" className="flex items-center gap-3 shrink-0">
-      <span className="flex h-11 w-11 items-center justify-center rounded-full bg-gold-500 font-heading text-lg font-bold text-navy-800">
+      <span className="flex h-11 w-11 items-center justify-center rounded-full bg-navy-700 font-heading text-lg font-bold text-white">
         KG
       </span>
       <span className="leading-tight text-left">
         <span className="block font-heading text-lg font-bold tracking-wide">
-          <span className={variant === 'light' ? 'text-white' : 'text-navy-600'}>KIVU </span>
-          <span className="text-gold-500">GATEWAY</span>
+          <span className={isLight ? 'text-white' : 'text-navy-700'}>KIVU </span>
+          <span className={isLight ? 'text-blue-300' : 'text-blue-600'}>GATEWAY</span>
         </span>
-        <span className={`block text-[10px] font-medium uppercase tracking-[0.2em] ${sub}`}>
+        <span className={`block text-[10px] font-medium uppercase tracking-[0.2em] ${isLight ? 'text-navy-100' : 'text-navy-400'}`}>
           Your Gateway To The Great Lakes
         </span>
       </span>

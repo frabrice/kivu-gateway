@@ -48,7 +48,7 @@ export default function About() {
 
         <div className="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2">
           <div className="rounded-2xl bg-navy-50 p-8">
-            <Target size={26} className="text-gold-600" />
+            <Target size={26} className="text-blue-600" />
             <h3 className="mt-3 font-heading text-lg font-bold text-navy-700">Our Mission</h3>
             <p className="mt-2 text-sm text-navy-500">
               To connect people, businesses and opportunities across Rwanda and Eastern DRC — making it easier to
@@ -56,7 +56,7 @@ export default function About() {
             </p>
           </div>
           <div className="rounded-2xl bg-navy-50 p-8">
-            <Compass size={26} className="text-gold-600" />
+            <Compass size={26} className="text-blue-600" />
             <h3 className="mt-3 font-heading text-lg font-bold text-navy-700">Our Vision</h3>
             <p className="mt-2 text-sm text-navy-500">
               To be the Great Lakes region's most trusted gateway — the first name that comes to mind for business,
@@ -72,7 +72,7 @@ export default function About() {
           <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {VALUES.map((value) => (
               <div key={value.title} className="rounded-xl border border-white/10 p-6">
-                <value.icon size={24} className="text-gold-500" />
+                <value.icon size={24} className="text-blue-500" />
                 <h3 className="mt-3 font-heading text-base font-bold">{value.title}</h3>
                 <p className="mt-2 text-sm text-navy-100">{value.description}</p>
               </div>
@@ -100,7 +100,7 @@ export default function About() {
             {TEAM.map((member) => (
               <div key={member.role} className="rounded-xl bg-white p-6 text-center shadow-card">
                 <span className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-navy-600">
-                  <Users2 size={26} className="text-gold-500" />
+                  <Users2 size={26} className="text-blue-500" />
                 </span>
                 <div className="mt-3 text-sm font-bold text-navy-700">{member.name}</div>
                 <div className="mt-0.5 text-xs text-navy-400">{member.role}</div>

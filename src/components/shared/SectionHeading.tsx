@@ -11,7 +11,7 @@ export default function SectionHeading({ eyebrow, title, description, align = 'c
   return (
     <div className={`flex max-w-2xl flex-col ${alignClass}`}>
       {eyebrow && (
-        <span className={`text-xs font-bold uppercase tracking-[0.2em] ${light ? 'text-gold-500' : 'text-gold-600'}`}>
+        <span className={`text-xs font-bold uppercase tracking-[0.2em] ${light ? 'text-blue-500' : 'text-blue-600'}`}>
           {eyebrow}
         </span>
       )}

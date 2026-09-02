@@ -22,7 +22,7 @@ export default function CTABand({
         <div className="flex flex-wrap items-center justify-center gap-4">
           <Link
             to={primaryTo}
-            className="inline-flex items-center justify-center rounded-md bg-gold-500 px-7 py-3 text-sm font-bold uppercase tracking-wide text-navy-800 transition hover:bg-gold-400"
+            className="inline-flex items-center justify-center rounded-md bg-blue-500 px-7 py-3 text-sm font-bold text-white transition hover:bg-blue-600"
           >
             {primaryLabel} →
           </Link>

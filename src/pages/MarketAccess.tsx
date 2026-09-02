@@ -33,16 +33,16 @@ export default function MarketAccess() {
             return (
               <div key={service.id} className="rounded-2xl border border-navy-100 bg-white p-7 shadow-card">
                 <span className="flex h-12 w-12 items-center justify-center rounded-full bg-navy-600">
-                  <Icon size={22} className="text-gold-500" />
+                  <Icon size={22} className="text-blue-500" />
                 </span>
                 <h3 className="mt-4 font-heading text-lg font-bold text-navy-700">{service.title}</h3>
-                <p className="mt-1 text-xs font-bold uppercase tracking-wide text-gold-600">{service.tagline}</p>
+                <p className="mt-1 text-xs font-bold uppercase tracking-wide text-blue-600">{service.tagline}</p>
                 <p className="mt-3 text-sm text-navy-400">{service.description}</p>
 
                 <ul className="mt-5 space-y-2">
                   {service.steps.map((step, i) => (
                     <li key={step} className="flex items-start gap-2.5 text-sm text-navy-500">
-                      <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-gold-50 text-[11px] font-bold text-gold-700">
+                      <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-blue-50 text-[11px] font-bold text-blue-700">
                         {i + 1}
                       </span>
                       {step}
@@ -65,7 +65,7 @@ export default function MarketAccess() {
               'One partner for the whole launch: research, introductions, promotion and follow-up support.',
             ].map((point) => (
               <div key={point} className="flex items-start gap-3 rounded-xl bg-white p-5 shadow-card">
-                <CheckCircle2 size={20} className="mt-0.5 shrink-0 text-gold-600" />
+                <CheckCircle2 size={20} className="mt-0.5 shrink-0 text-blue-600" />
                 <p className="text-sm text-navy-500">{point}</p>
               </div>
             ))}

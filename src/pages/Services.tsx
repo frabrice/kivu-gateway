@@ -51,13 +51,13 @@ function ServiceSection({
 
           <div>
             <span className="flex h-12 w-12 items-center justify-center rounded-full bg-navy-600">
-              <Icon size={22} className="text-gold-500" />
+              <Icon size={22} className="text-blue-500" />
             </span>
             <SectionHeading align="left" eyebrow={eyebrow} title={title} description={description} />
             <ul className="mt-5 space-y-2.5">
               {whatWeDo.map((item) => (
                 <li key={item} className="flex items-start gap-2.5 text-sm text-navy-500">
-                  <CheckCircle2 size={17} className="mt-0.5 shrink-0 text-gold-600" />
+                  <CheckCircle2 size={17} className="mt-0.5 shrink-0 text-blue-600" />
                   {item}
                 </li>
               ))}

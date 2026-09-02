@@ -13,7 +13,7 @@ export default function Header() {
   }, [location])
 
   return (
-    <header className="sticky top-0 z-50 bg-navy-600 shadow-md">
+    <header className="sticky top-0 z-50 border-b border-navy-100 bg-white/95 backdrop-blur-sm">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
         <Logo />
 
@@ -24,8 +24,8 @@ export default function Header() {
               to={item.to}
               end={item.to === '/'}
               className={({ isActive }) =>
-                `text-sm font-semibold uppercase tracking-wide transition-colors ${
-                  isActive ? 'text-gold-500' : 'text-white/85 hover:text-gold-400'
+                `text-sm font-semibold transition-colors ${
+                  isActive ? 'text-blue-600' : 'text-navy-600 hover:text-blue-600'
                 }`
               }
             >
@@ -36,7 +36,7 @@ export default function Header() {
 
         <Link
           to="/contact"
-          className="hidden shrink-0 items-center rounded-md bg-gold-500 px-5 py-2.5 text-sm font-bold uppercase tracking-wide text-navy-800 transition hover:bg-gold-400 lg:inline-flex"
+          className="hidden shrink-0 items-center rounded-md bg-blue-500 px-5 py-2.5 text-sm font-bold text-white transition hover:bg-blue-600 lg:inline-flex"
         >
           Get In Touch →
         </Link>
@@ -44,7 +44,7 @@ export default function Header() {
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
-          className="inline-flex items-center justify-center rounded-md p-2 text-white lg:hidden"
+          className="inline-flex items-center justify-center rounded-md p-2 text-navy-700 lg:hidden"
           aria-label="Toggle menu"
         >
           {open ? <X size={26} /> : <Menu size={26} />}
@@ -52,7 +52,7 @@ export default function Header() {
       </div>
 
       {open && (
-        <div className="border-t border-white/10 bg-navy-600 lg:hidden">
+        <div className="border-t border-navy-100 bg-white lg:hidden">
           <nav className="mx-auto flex max-w-7xl flex-col gap-1 px-4 py-4 sm:px-6">
             {NAV_ITEMS.map((item) => (
               <NavLink
@@ -60,8 +60,8 @@ export default function Header() {
                 to={item.to}
                 end={item.to === '/'}
                 className={({ isActive }) =>
-                  `rounded-md px-3 py-2.5 text-sm font-semibold uppercase tracking-wide ${
-                    isActive ? 'bg-navy-500 text-gold-500' : 'text-white/85'
+                  `rounded-md px-3 py-2.5 text-sm font-semibold ${
+                    isActive ? 'bg-blue-50 text-blue-600' : 'text-navy-600'
                   }`
                 }
               >
@@ -70,7 +70,7 @@ export default function Header() {
             ))}
             <Link
               to="/contact"
-              className="mt-2 inline-flex items-center justify-center rounded-md bg-gold-500 px-5 py-3 text-sm font-bold uppercase tracking-wide text-navy-800"
+              className="mt-2 inline-flex items-center justify-center rounded-md bg-blue-500 px-5 py-3 text-sm font-bold text-white"
             >
               Get In Touch →
             </Link>

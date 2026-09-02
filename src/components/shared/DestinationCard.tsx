@@ -26,7 +26,7 @@ export default function DestinationCard({ destination, to }: DestinationCardProp
       <div className="absolute inset-0 bg-gradient-to-t from-navy-800/90 via-navy-800/10 to-transparent" />
       <div className="absolute inset-x-0 bottom-0 p-4 text-white">
         <div className="flex items-center gap-1.5 text-sm font-bold">
-          <MapPin size={15} className="text-gold-500" />
+          <MapPin size={15} className="text-blue-500" />
           {destination.name}
         </div>
         <div className="mt-1 text-xs text-navy-100">{destination.tags}</div>

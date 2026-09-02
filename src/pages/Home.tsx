@@ -47,7 +47,7 @@ export default function Home() {
 
         <div className="relative mx-auto flex max-w-7xl flex-col gap-6 px-4 py-24 sm:px-6 lg:px-8">
           <h1 className="max-w-xl font-heading text-4xl font-bold leading-tight text-white sm:text-5xl">
-            Your Gateway <span className="block text-gold-500">to the Great Lakes</span>
+            Your Gateway <span className="block text-blue-500">to the Great Lakes</span>
           </h1>
           <p className="max-w-md text-base text-navy-100 sm:text-lg">
             Connecting People, Businesses &amp; Opportunities Across Rwanda and Eastern DRC.
@@ -55,7 +55,7 @@ export default function Home() {
           <div className="flex flex-wrap items-center gap-4">
             <Link
               to="/services"
-              className="inline-flex items-center gap-2 rounded-md bg-gold-500 px-7 py-3.5 text-sm font-bold uppercase tracking-wide text-navy-800 transition hover:bg-gold-400"
+              className="inline-flex items-center gap-2 rounded-md bg-blue-500 px-7 py-3.5 text-sm font-bold text-white transition hover:bg-blue-600"
             >
               Explore Our Services <ArrowRight size={16} />
             </Link>
@@ -63,7 +63,7 @@ export default function Home() {
           </div>
 
           <div className="mt-4 inline-flex w-fit items-center gap-3 rounded-full bg-white/10 px-4 py-2 text-xs font-bold uppercase tracking-widest text-white backdrop-blur-sm">
-            Rwanda <span className="text-gold-500">⇄</span> Eastern DRC
+            Rwanda <span className="text-blue-500">⇄</span> Eastern DRC
           </div>
         </div>
       </section>
@@ -84,63 +84,31 @@ export default function Home() {
       </section>
 
       {/* Market Access & Activation */}
-      <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-        <div className="overflow-hidden rounded-2xl bg-navy-gradient">
-          <div className="grid gap-10 p-8 sm:p-12 lg:grid-cols-2 lg:items-center">
-            <div className="grid grid-cols-3 gap-3">
-              <img
-                src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=500&q=55"
-                alt="Product on display"
-                className="col-span-1 h-40 w-full rounded-xl object-cover sm:h-56"
-                loading="lazy"
-                decoding="async"
-              />
-              <img
-                src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=500&q=55"
-                alt="Property development"
-                className="col-span-1 h-40 w-full rounded-xl object-cover sm:h-56"
-                loading="lazy"
-                decoding="async"
-              />
-              <img
-                src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=500&q=55"
-                alt="Hotel room"
-                className="col-span-1 h-40 w-full rounded-xl object-cover sm:h-56"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
+      <section className="mx-auto max-w-5xl px-4 py-20 text-center sm:px-6 lg:px-8">
+        <SectionHeading
+          eyebrow="Market Access & Activation"
+          title="Enter, launch and grow in the Great Lakes market."
+          description="We help businesses, products, properties and hospitality brands get local traction from day one."
+        />
 
-            <div>
-              <SectionHeading
-                align="left"
-                eyebrow="Market Access & Activation"
-                title="We help businesses, products, properties and hospitality brands enter, launch and grow in the Great Lakes market."
-                light
-              />
-
-              <div className="mt-8 grid grid-cols-2 gap-6">
-                {MARKET_ACCESS_SERVICES.map((service) => {
-                  const Icon = MARKET_ACCESS_ICONS[service.id]
-                  return (
-                    <div key={service.id}>
-                      <Icon size={22} className="text-gold-500" />
-                      <div className="mt-2 text-sm font-bold uppercase tracking-wide text-white">{service.title}</div>
-                      <div className="mt-1 text-xs text-navy-100">{service.tagline}</div>
-                    </div>
-                  )
-                })}
+        <div className="mt-10 grid grid-cols-2 gap-px overflow-hidden rounded-2xl bg-navy-800 sm:grid-cols-4">
+          {MARKET_ACCESS_SERVICES.map((service) => {
+            const Icon = MARKET_ACCESS_ICONS[service.id]
+            return (
+              <div key={service.id} className="flex flex-col items-center gap-2 bg-navy-800 px-4 py-8">
+                <Icon size={22} className="text-blue-300" />
+                <div className="text-sm font-semibold text-white">{service.title}</div>
               </div>
-
-              <Link
-                to="/market-access"
-                className="mt-8 inline-flex items-center gap-2 rounded-md bg-gold-500 px-6 py-3 text-sm font-bold uppercase tracking-wide text-navy-800 transition hover:bg-gold-400"
-              >
-                Launch With Us <ArrowRight size={16} />
-              </Link>
-            </div>
-          </div>
+            )
+          })}
         </div>
+
+        <Link
+          to="/market-access"
+          className="mt-8 inline-flex items-center gap-2 rounded-md bg-blue-500 px-6 py-3 text-sm font-bold text-white transition hover:bg-blue-600"
+        >
+          Launch With Us <ArrowRight size={16} />
+        </Link>
       </section>
 
       {/* Discover the Great Lakes */}
@@ -156,7 +124,7 @@ export default function Home() {
         <div className="mt-10 flex justify-center">
           <Link
             to="/tourism"
-            className="inline-flex items-center gap-2 rounded-md border-2 border-navy-600 px-7 py-3 text-sm font-bold uppercase tracking-wide text-navy-600 transition hover:bg-navy-600 hover:text-white"
+            className="inline-flex items-center gap-2 rounded-md border-2 border-navy-600 px-7 py-3 text-sm font-bold text-navy-600 transition hover:bg-navy-600 hover:text-white"
           >
             Explore All Destinations <ArrowRight size={16} />
           </Link>
