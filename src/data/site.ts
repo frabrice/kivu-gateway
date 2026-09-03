@@ -8,10 +8,10 @@ export const NAV_ITEMS = [
 ] as const
 
 export const CONTACT = {
-  phoneDisplay: '+250 789 000 000',
-  phoneHref: 'tel:+250789000000',
-  whatsappHref: 'https://wa.me/250789000000',
-  email: 'hello@kivugateway.com',
+  phoneDisplay: '+250 783 171 000',
+  phoneHref: 'tel:+250783171000',
+  whatsappHref: 'https://wa.me/250783171000',
+  email: 'kivugateway@gmail.com',
   address: 'KG 7 Ave, Nyarutarama, Kigali, Rwanda',
   hours: 'Mon – Fri: 8:00 – 18:00 · Sat: 9:00 – 13:00 (CAT)',
 }
