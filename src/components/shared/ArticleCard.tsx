@@ -5,7 +5,7 @@ import type { Article } from '../../data/types'
 export default function ArticleCard({ article }: { article: Article }) {
   return (
     <Link
-      to={`/journal/${article.slug}`}
+      to={`/lifestyle/${article.slug}`}
       className="group flex flex-col overflow-hidden rounded-xl border border-navy-100 bg-white shadow-card transition hover:-translate-y-0.5 hover:shadow-lg"
     >
       <div className="h-44 w-full overflow-hidden">

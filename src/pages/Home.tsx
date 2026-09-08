@@ -135,12 +135,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Journal */}
+      {/* Lifestyle */}
       <section className="bg-navy-50 py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-end justify-between gap-4">
-            <SectionHeading align="left" eyebrow="Journal" title="Latest From The Journal" />
-            <Link to="/journal" className="text-sm font-bold text-blue-600 hover:text-blue-700">
+            <SectionHeading align="left" eyebrow="Lifestyle" title="Latest From Lifestyle" />
+            <Link to="/lifestyle" className="text-sm font-bold text-blue-600 hover:text-blue-700">
               Read More →
             </Link>
           </div>

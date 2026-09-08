@@ -5,8 +5,8 @@ const LINKS = [
   { to: '/admin', label: 'Overview', icon: LayoutDashboard, end: true },
   { to: '/admin/businesses', label: 'Businesses', icon: Store, end: false },
   { to: '/admin/events', label: 'Events', icon: CalendarDays, end: false },
-  { to: '/admin/opportunities', label: 'Opportunities', icon: Briefcase, end: false },
-  { to: '/admin/journal', label: 'Journal', icon: Newspaper, end: false },
+  { to: '/admin/jobs', label: 'Jobs', icon: Briefcase, end: false },
+  { to: '/admin/lifestyle', label: 'Lifestyle', icon: Newspaper, end: false },
 ]
 
 export default function AdminLayout() {

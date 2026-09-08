@@ -21,8 +21,8 @@ const EMPTY: Omit<Opportunity, 'id'> = {
   contact: '',
 }
 
-export default function AdminOpportunities() {
-  useDocumentTitle('Manage Opportunities')
+export default function AdminJobs() {
+  useDocumentTitle('Manage Jobs')
   const { opportunities, addOpportunity, updateOpportunity, deleteOpportunity } = useData()
   const [open, setOpen] = useState(false)
   const [editingId, setEditingId] = useState<string | null>(null)
@@ -56,7 +56,7 @@ export default function AdminOpportunities() {
     <div>
       <div className="flex flex-wrap items-center justify-between gap-4">
         <div>
-          <h1 className="font-heading text-2xl font-bold text-navy-700">Opportunities</h1>
+          <h1 className="font-heading text-2xl font-bold text-navy-700">Jobs</h1>
           <p className="mt-1 text-sm text-navy-400">{opportunities.length} jobs & tenders</p>
         </div>
         <button
@@ -64,7 +64,7 @@ export default function AdminOpportunities() {
           onClick={openAdd}
           className="inline-flex items-center gap-2 rounded-md bg-blue-500 px-4 py-2.5 text-sm font-bold text-white hover:bg-blue-600"
         >
-          <Plus size={16} /> Add Opportunity
+          <Plus size={16} /> Add Job
         </button>
       </div>
 
@@ -100,7 +100,7 @@ export default function AdminOpportunities() {
         </table>
       </div>
 
-      <Slideover open={open} title={editingId ? 'Edit Opportunity' : 'Add Opportunity'} onClose={() => setOpen(false)}>
+      <Slideover open={open} title={editingId ? 'Edit Job' : 'Add Job'} onClose={() => setOpen(false)}>
         <form onSubmit={handleSubmit} className="space-y-4">
           <Field label="Title">
             <input required className={inputClass} value={form.title} onChange={(e) => setForm({ ...form, title: e.target.value })} />
@@ -139,7 +139,7 @@ export default function AdminOpportunities() {
             <input required type="email" className={inputClass} value={form.contact} onChange={(e) => setForm({ ...form, contact: e.target.value })} />
           </Field>
           <button type="submit" className="w-full rounded-md bg-blue-500 py-2.5 text-sm font-bold text-white hover:bg-blue-600">
-            {editingId ? 'Save Changes' : 'Add Opportunity'}
+            {editingId ? 'Save Changes' : 'Add Job'}
           </button>
         </form>
       </Slideover>

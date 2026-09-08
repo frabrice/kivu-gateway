@@ -4,19 +4,19 @@ import { useDocumentTitle } from '../hooks/useDocumentTitle'
 import { useData } from '../data/store'
 import { formatDate } from '../components/shared/EventCard'
 
-export default function OpportunityDetail() {
+export default function JobDetail() {
   const { id } = useParams()
   const { opportunities } = useData()
   const opportunity = opportunities.find((o) => o.id === id)
 
-  useDocumentTitle(opportunity ? opportunity.title : 'Opportunity Not Found', opportunity?.description)
+  useDocumentTitle(opportunity ? opportunity.title : 'Job Not Found', opportunity?.description)
 
   if (!opportunity) {
     return (
       <div className="mx-auto max-w-3xl px-4 py-24 text-center sm:px-6 lg:px-8">
-        <h1 className="font-heading text-2xl font-bold text-navy-700">Opportunity not found</h1>
-        <Link to="/opportunities" className="mt-6 inline-flex items-center gap-1.5 text-sm font-bold text-blue-600">
-          <ArrowLeft size={15} /> Back to Opportunities
+        <h1 className="font-heading text-2xl font-bold text-navy-700">Job not found</h1>
+        <Link to="/jobs" className="mt-6 inline-flex items-center gap-1.5 text-sm font-bold text-blue-600">
+          <ArrowLeft size={15} /> Back to Jobs
         </Link>
       </div>
     )
@@ -24,8 +24,8 @@ export default function OpportunityDetail() {
 
   return (
     <section className="mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8">
-      <Link to="/opportunities" className="inline-flex items-center gap-1.5 text-xs font-semibold text-navy-400 hover:text-blue-600">
-        <ArrowLeft size={14} /> Back to Opportunities
+      <Link to="/jobs" className="inline-flex items-center gap-1.5 text-xs font-semibold text-navy-400 hover:text-blue-600">
+        <ArrowLeft size={14} /> Back to Jobs
       </Link>
 
       <div className="mt-6 rounded-2xl border border-navy-100 bg-white p-8 shadow-card">

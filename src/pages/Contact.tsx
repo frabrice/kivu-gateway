@@ -6,7 +6,7 @@ import SectionHeading from '../components/shared/SectionHeading'
 import { useDocumentTitle } from '../hooks/useDocumentTitle'
 import { CONTACT } from '../data/site'
 
-const TOPICS = ['Starting a Business', 'Business Directory Listing', 'Travel & Border', 'Events', 'Opportunities & Tenders', 'Journal / Press', 'Other']
+const TOPICS = ['Starting a Business', 'Business Directory Listing', 'Travel & Border', 'Events', 'Jobs & Tenders', 'Lifestyle / Press', 'Other']
 
 export default function Contact() {
   useDocumentTitle('Contact', "Get in touch with Kivu Gateway — questions about business, travel, listings or events in Goma and Gisenyi.")

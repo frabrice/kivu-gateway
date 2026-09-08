@@ -13,8 +13,8 @@ export default function AdminOverview() {
   const cards = [
     { label: 'Businesses Listed', value: businesses.length, icon: Store, to: '/admin/businesses' },
     { label: 'Upcoming Events', value: upcomingEvents, icon: CalendarDays, to: '/admin/events' },
-    { label: 'Open Opportunities', value: openOpportunities, icon: Briefcase, to: '/admin/opportunities' },
-    { label: 'Journal Articles', value: articles.length, icon: Newspaper, to: '/admin/journal' },
+    { label: 'Open Jobs & Tenders', value: openOpportunities, icon: Briefcase, to: '/admin/jobs' },
+    { label: 'Lifestyle Articles', value: articles.length, icon: Newspaper, to: '/admin/lifestyle' },
   ]
 
   return (

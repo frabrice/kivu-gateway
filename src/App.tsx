@@ -10,10 +10,11 @@ import BusinessDirectory from './pages/BusinessDirectory'
 import BusinessDetail from './pages/BusinessDetail'
 import Events from './pages/Events'
 import EventDetail from './pages/EventDetail'
-import Opportunities from './pages/Opportunities'
-import OpportunityDetail from './pages/OpportunityDetail'
-import Journal from './pages/Journal'
-import JournalDetail from './pages/JournalDetail'
+import Jobs from './pages/Jobs'
+import JobDetail from './pages/JobDetail'
+import Lifestyle from './pages/Lifestyle'
+import LifestyleDetail from './pages/LifestyleDetail'
+import GetListed from './pages/GetListed'
 import About from './pages/About'
 import Contact from './pages/Contact'
 import AdminLayout from './pages/admin/AdminLayout'
@@ -21,8 +22,8 @@ import AdminLogin from './pages/admin/AdminLogin'
 import AdminOverview from './pages/admin/AdminOverview'
 import AdminBusinesses from './pages/admin/AdminBusinesses'
 import AdminEvents from './pages/admin/AdminEvents'
-import AdminOpportunities from './pages/admin/AdminOpportunities'
-import AdminJournal from './pages/admin/AdminJournal'
+import AdminJobs from './pages/admin/AdminJobs'
+import AdminLifestyle from './pages/admin/AdminLifestyle'
 
 export default function App() {
   return (
@@ -39,10 +40,11 @@ export default function App() {
           <Route path="business/directory/:id" element={<BusinessDetail />} />
           <Route path="events" element={<Events />} />
           <Route path="events/:id" element={<EventDetail />} />
-          <Route path="opportunities" element={<Opportunities />} />
-          <Route path="opportunities/:id" element={<OpportunityDetail />} />
-          <Route path="journal" element={<Journal />} />
-          <Route path="journal/:slug" element={<JournalDetail />} />
+          <Route path="jobs" element={<Jobs />} />
+          <Route path="jobs/:id" element={<JobDetail />} />
+          <Route path="lifestyle" element={<Lifestyle />} />
+          <Route path="lifestyle/:slug" element={<LifestyleDetail />} />
+          <Route path="get-listed" element={<GetListed />} />
           <Route path="about" element={<About />} />
           <Route path="contact" element={<Contact />} />
         </Route>
@@ -52,8 +54,8 @@ export default function App() {
           <Route index element={<AdminOverview />} />
           <Route path="businesses" element={<AdminBusinesses />} />
           <Route path="events" element={<AdminEvents />} />
-          <Route path="opportunities" element={<AdminOpportunities />} />
-          <Route path="journal" element={<AdminJournal />} />
+          <Route path="jobs" element={<AdminJobs />} />
+          <Route path="lifestyle" element={<AdminLifestyle />} />
         </Route>
       </Routes>
     </>

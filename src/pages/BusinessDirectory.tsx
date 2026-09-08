@@ -63,7 +63,8 @@ export default function BusinessDirectory() {
       <CTABand
         title="Own a business in Goma or Gisenyi?"
         description="Get listed in our directory — free basic listings, with featured placement for businesses that want more visibility."
-        primaryLabel="List Your Business"
+        primaryLabel="Get Listed"
+        primaryTo="/get-listed?type=business"
       />
     </>
   )

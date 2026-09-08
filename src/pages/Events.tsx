@@ -44,7 +44,12 @@ export default function Events() {
         )}
       </section>
 
-      <CTABand title="Hosting an event in Goma or Gisenyi?" description="Get it listed here so more people know about it." primaryLabel="Submit an Event" />
+      <CTABand
+        title="Hosting an event in Goma or Gisenyi?"
+        description="Get it listed here so more people know about it."
+        primaryLabel="Submit an Event"
+        primaryTo="/get-listed?type=event"
+      />
     </>
   )
 }

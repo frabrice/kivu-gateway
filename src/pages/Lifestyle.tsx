@@ -2,14 +2,15 @@ import { useMemo, useState } from 'react'
 import PageHero from '../components/layout/PageHero'
 import FilterChips from '../components/shared/FilterChips'
 import ArticleCard from '../components/shared/ArticleCard'
+import CTABand from '../components/shared/CTABand'
 import { useDocumentTitle } from '../hooks/useDocumentTitle'
 import { useData } from '../data/store'
 import type { ArticleCategory } from '../data/types'
 
 const CATEGORIES: ArticleCategory[] = ['Food & Cafés', 'Stay & Hotels', 'Guides', 'Nature & Wildlife']
 
-export default function Journal() {
-  useDocumentTitle('Journal', 'Lifestyle guides for Goma and Gisenyi — best cafés, best hotels, border guides and more.')
+export default function Lifestyle() {
+  useDocumentTitle('Lifestyle', 'Lifestyle guides for Goma and Gisenyi — best cafés, best hotels, border guides and more.')
   const { articles } = useData()
   const [category, setCategory] = useState('All')
 
@@ -25,7 +26,7 @@ export default function Journal() {
   return (
     <>
       <PageHero
-        title="Journal"
+        title="Lifestyle"
         subtitle="Lifestyle guides for Goma and Gisenyi — best cafés, best hotels, border guides and more."
         image="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1400&q=45"
       />
@@ -43,6 +44,13 @@ export default function Journal() {
           </div>
         )}
       </section>
+
+      <CTABand
+        title="Want us to feature your business?"
+        description="Pitch a story — best cafés, best stays, local guides and more."
+        primaryLabel="Pitch a Story"
+        primaryTo="/get-listed?type=article"
+      />
     </>
   )
 }

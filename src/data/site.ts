@@ -18,8 +18,8 @@ export const NAV_ITEMS: NavItem[] = [
     ],
   },
   { label: 'Events', to: '/events' },
-  { label: 'Opportunities', to: '/opportunities' },
-  { label: 'Journal', to: '/journal' },
+  { label: 'Jobs', to: '/jobs' },
+  { label: 'Lifestyle', to: '/lifestyle' },
   { label: 'About Us', to: '/about' },
   { label: 'Contact', to: '/contact' },
 ]
@@ -74,15 +74,15 @@ export const PILLARS: Pillar[] = [
   },
   {
     id: 'opportunities',
-    title: 'Opportunities',
+    title: 'Jobs',
     short: 'Jobs and tenders from local companies and NGOs.',
-    to: '/opportunities',
+    to: '/jobs',
   },
   {
     id: 'journal',
-    title: 'Journal',
+    title: 'Lifestyle',
     short: 'Lifestyle guides — best cafés, hotels and local tips.',
-    to: '/journal',
+    to: '/lifestyle',
   },
 ]
 

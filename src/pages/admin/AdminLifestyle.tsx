@@ -28,8 +28,8 @@ const EMPTY: Omit<Article, 'id'> = {
   published: true,
 }
 
-export default function AdminJournal() {
-  useDocumentTitle('Manage Journal')
+export default function AdminLifestyle() {
+  useDocumentTitle('Manage Lifestyle')
   const { articles, addArticle, updateArticle, deleteArticle } = useData()
   const [open, setOpen] = useState(false)
   const [editingId, setEditingId] = useState<string | null>(null)
@@ -64,7 +64,7 @@ export default function AdminJournal() {
     <div>
       <div className="flex flex-wrap items-center justify-between gap-4">
         <div>
-          <h1 className="font-heading text-2xl font-bold text-navy-700">Journal</h1>
+          <h1 className="font-heading text-2xl font-bold text-navy-700">Lifestyle</h1>
           <p className="mt-1 text-sm text-navy-400">{articles.length} articles</p>
         </div>
         <button

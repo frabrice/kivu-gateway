@@ -6,7 +6,7 @@ import { formatDate } from './EventCard'
 export default function OpportunityCard({ opportunity }: { opportunity: Opportunity }) {
   return (
     <Link
-      to={`/opportunities/${opportunity.id}`}
+      to={`/jobs/${opportunity.id}`}
       className="flex flex-col gap-3 rounded-xl border border-navy-100 bg-white p-5 shadow-card transition hover:-translate-y-0.5 hover:shadow-lg sm:flex-row sm:items-center sm:justify-between"
     >
       <div>

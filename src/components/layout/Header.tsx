@@ -89,10 +89,10 @@ export default function Header() {
         </nav>
 
         <Link
-          to="/business/directory"
+          to="/get-listed"
           className="hidden shrink-0 items-center rounded-md bg-blue-500 px-5 py-2.5 text-sm font-bold text-white transition hover:bg-blue-600 lg:inline-flex"
         >
-          List Your Business →
+          Get Listed →
         </Link>
 
         <button
@@ -145,10 +145,10 @@ export default function Header() {
               ),
             )}
             <Link
-              to="/business/directory"
+              to="/get-listed"
               className="mt-2 inline-flex items-center justify-center rounded-md bg-blue-500 px-5 py-3 text-sm font-bold text-white"
             >
-              List Your Business →
+              Get Listed →
             </Link>
           </nav>
         </div>
