@@ -4,7 +4,7 @@ import { useDocumentTitle } from '../../hooks/useDocumentTitle'
 import { useData } from '../../data/store'
 import type { Article, ArticleCategory } from '../../data/types'
 import Slideover from './components/Slideover'
-import { Field, inputClass } from './components/fields'
+import { Field, Grid2, SectionTitle, inputClass } from './components/fields'
 
 const CATEGORIES: ArticleCategory[] = ['Food & Cafés', 'Stay & Hotels', 'Guides', 'Nature & Wildlife']
 
@@ -113,37 +113,44 @@ export default function AdminLifestyle() {
       </div>
 
       <Slideover open={open} title={editingId ? 'Edit Article' : 'Add Article'} onClose={() => setOpen(false)}>
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <Field label="Title">
-            <input required className={inputClass} value={form.title} onChange={(e) => setForm({ ...form, title: e.target.value })} />
-          </Field>
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <SectionTitle>Basic Info</SectionTitle>
+          <Grid2>
+            <Field label="Title">
+              <input required className={inputClass} value={form.title} onChange={(e) => setForm({ ...form, title: e.target.value })} />
+            </Field>
+            <Field label="Category">
+              <select className={inputClass} value={form.category} onChange={(e) => setForm({ ...form, category: e.target.value as ArticleCategory })}>
+                {CATEGORIES.map((c) => (
+                  <option key={c} value={c}>{c}</option>
+                ))}
+              </select>
+            </Field>
+          </Grid2>
           <Field label="Slug (auto if left blank)">
             <input className={inputClass} value={form.slug} onChange={(e) => setForm({ ...form, slug: e.target.value })} placeholder={slugify(form.title)} />
-          </Field>
-          <Field label="Category">
-            <select className={inputClass} value={form.category} onChange={(e) => setForm({ ...form, category: e.target.value as ArticleCategory })}>
-              {CATEGORIES.map((c) => (
-                <option key={c} value={c}>{c}</option>
-              ))}
-            </select>
           </Field>
           <Field label="Cover Image URL">
             <input required className={inputClass} value={form.coverImage} onChange={(e) => setForm({ ...form, coverImage: e.target.value })} />
           </Field>
-          <Field label="Excerpt">
+
+          <SectionTitle>Content</SectionTitle>
+          <Field label="Excerpt" hint="One or two sentences shown on the article card">
             <textarea required rows={2} className={inputClass} value={form.excerpt} onChange={(e) => setForm({ ...form, excerpt: e.target.value })} />
           </Field>
-          <Field label="Body">
-            <textarea required rows={8} className={inputClass} value={form.body} onChange={(e) => setForm({ ...form, body: e.target.value })} />
+          <Field label="Body" hint="Separate paragraphs with a blank line">
+            <textarea required rows={10} className={inputClass} value={form.body} onChange={(e) => setForm({ ...form, body: e.target.value })} />
           </Field>
-          <div className="grid grid-cols-2 gap-3">
+
+          <SectionTitle>Publishing</SectionTitle>
+          <Grid2>
             <Field label="Author">
               <input required className={inputClass} value={form.author} onChange={(e) => setForm({ ...form, author: e.target.value })} />
             </Field>
             <Field label="Published Date">
               <input type="date" required className={inputClass} value={form.publishedDate} onChange={(e) => setForm({ ...form, publishedDate: e.target.value })} />
             </Field>
-          </div>
+          </Grid2>
           <label className="flex items-center gap-2 text-sm font-semibold text-navy-600">
             <input
               type="checkbox"
@@ -153,6 +160,7 @@ export default function AdminLifestyle() {
             />
             Published (visible on the site)
           </label>
+
           <button type="submit" className="w-full rounded-md bg-blue-500 py-2.5 text-sm font-bold text-white hover:bg-blue-600">
             {editingId ? 'Save Changes' : 'Add Article'}
           </button>

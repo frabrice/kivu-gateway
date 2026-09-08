@@ -1,5 +1,5 @@
 import { Link, useParams } from 'react-router-dom'
-import { ArrowLeft, Calendar, Clock, MapPin, Tag } from 'lucide-react'
+import { ArrowLeft, Calendar, Clock, MapPin, Tag, Ticket, User } from 'lucide-react'
 import { useDocumentTitle } from '../hooks/useDocumentTitle'
 import { useData } from '../data/store'
 import { formatDate } from '../components/shared/EventCard'
@@ -61,6 +61,18 @@ export default function EventDetail() {
                 <Tag size={16} className="shrink-0 text-blue-600" />
                 <span className="text-navy-600">{event.category}</span>
               </li>
+              {event.organizer && (
+                <li className="flex items-center gap-2.5">
+                  <User size={16} className="shrink-0 text-blue-600" />
+                  <span className="text-navy-600">{event.organizer}</span>
+                </li>
+              )}
+              {event.priceInfo && (
+                <li className="flex items-center gap-2.5">
+                  <Ticket size={16} className="shrink-0 text-blue-600" />
+                  <span className="text-navy-600">{event.priceInfo}</span>
+                </li>
+              )}
             </ul>
           </div>
         </div>

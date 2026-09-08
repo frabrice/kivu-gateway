@@ -1,5 +1,5 @@
 import { Link, useParams } from 'react-router-dom'
-import { ArrowLeft, Briefcase, Building2, Clock, Mail, MapPin } from 'lucide-react'
+import { ArrowLeft, Banknote, Briefcase, Building2, Clock, ExternalLink, Mail, MapPin } from 'lucide-react'
 import { useDocumentTitle } from '../hooks/useDocumentTitle'
 import { useData } from '../data/store'
 import { formatDate } from '../components/shared/EventCard'
@@ -29,13 +29,20 @@ export default function JobDetail() {
       </Link>
 
       <div className="mt-6 rounded-2xl border border-navy-100 bg-white p-8 shadow-card">
-        <span
-          className={`inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-[11px] font-bold ${
-            opportunity.type === 'Job' ? 'bg-blue-50 text-blue-600' : 'bg-navy-50 text-navy-600'
-          }`}
-        >
-          <Briefcase size={11} /> {opportunity.type}
-        </span>
+        <div className="flex flex-wrap items-center gap-2">
+          <span
+            className={`inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-[11px] font-bold ${
+              opportunity.type === 'Job' ? 'bg-blue-50 text-blue-600' : 'bg-navy-50 text-navy-600'
+            }`}
+          >
+            <Briefcase size={11} /> {opportunity.type}
+          </span>
+          {opportunity.employmentType && (
+            <span className="inline-flex items-center gap-1 rounded-full bg-navy-50 px-2.5 py-1 text-[11px] font-bold text-navy-600">
+              {opportunity.employmentType}
+            </span>
+          )}
+        </div>
         <h1 className="mt-3 font-heading text-2xl font-bold text-navy-700 sm:text-3xl">{opportunity.title}</h1>
         <p className="mt-1 text-sm font-semibold text-navy-500">{opportunity.org}</p>
 
@@ -49,16 +56,33 @@ export default function JobDetail() {
           <div className="flex items-center gap-2 text-sm text-navy-600">
             <Building2 size={16} className="text-blue-600" /> Posted {formatDate(opportunity.postedDate)}
           </div>
+          {opportunity.compensation && (
+            <div className="flex items-center gap-2 text-sm text-navy-600">
+              <Banknote size={16} className="text-blue-600" /> {opportunity.compensation}
+            </div>
+          )}
         </div>
 
         <p className="mt-6 text-sm leading-relaxed text-navy-500 sm:text-base">{opportunity.description}</p>
 
-        <a
-          href={`mailto:${opportunity.contact}`}
-          className="mt-8 inline-flex items-center gap-2 rounded-md bg-blue-500 px-6 py-3 text-sm font-bold text-white transition hover:bg-blue-600"
-        >
-          <Mail size={16} /> Apply — {opportunity.contact}
-        </a>
+        <div className="mt-8 flex flex-wrap gap-3">
+          <a
+            href={`mailto:${opportunity.contact}`}
+            className="inline-flex items-center gap-2 rounded-md bg-blue-500 px-6 py-3 text-sm font-bold text-white transition hover:bg-blue-600"
+          >
+            <Mail size={16} /> Apply — {opportunity.contact}
+          </a>
+          {opportunity.applyLink && (
+            <a
+              href={opportunity.applyLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-md border border-navy-200 px-6 py-3 text-sm font-bold text-navy-700 transition hover:bg-navy-50"
+            >
+              <ExternalLink size={16} /> Application Link
+            </a>
+          )}
+        </div>
       </div>
     </section>
   )

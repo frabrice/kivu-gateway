@@ -4,7 +4,7 @@ import { useDocumentTitle } from '../../hooks/useDocumentTitle'
 import { useData } from '../../data/store'
 import type { City, Event, EventCategory } from '../../data/types'
 import Slideover from './components/Slideover'
-import { Field, inputClass } from './components/fields'
+import { Field, Grid2, Grid3, SectionTitle, inputClass } from './components/fields'
 import { formatDate } from '../../components/shared/EventCard'
 
 const CITIES: City[] = ['Goma', 'Gisenyi']
@@ -17,6 +17,8 @@ const EMPTY: Omit<Event, 'id'> = {
   time: '',
   venue: '',
   category: 'Business & Networking',
+  organizer: '',
+  priceInfo: '',
   description: '',
   image: '',
 }
@@ -99,11 +101,12 @@ export default function AdminEvents() {
       </div>
 
       <Slideover open={open} title={editingId ? 'Edit Event' : 'Add Event'} onClose={() => setOpen(false)}>
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <Field label="Title">
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <SectionTitle>Basic Info</SectionTitle>
+          <Field label="Event Title">
             <input required className={inputClass} value={form.title} onChange={(e) => setForm({ ...form, title: e.target.value })} />
           </Field>
-          <div className="grid grid-cols-2 gap-3">
+          <Grid2>
             <Field label="City">
               <select className={inputClass} value={form.city} onChange={(e) => setForm({ ...form, city: e.target.value as City })}>
                 {CITIES.map((c) => (
@@ -118,24 +121,37 @@ export default function AdminEvents() {
                 ))}
               </select>
             </Field>
-          </div>
-          <div className="grid grid-cols-2 gap-3">
-            <Field label="Date">
-              <input type="date" required className={inputClass} value={form.date} onChange={(e) => setForm({ ...form, date: e.target.value })} />
-            </Field>
-            <Field label="Time">
-              <input type="time" required className={inputClass} value={form.time} onChange={(e) => setForm({ ...form, time: e.target.value })} />
-            </Field>
-          </div>
-          <Field label="Venue">
-            <input required className={inputClass} value={form.venue} onChange={(e) => setForm({ ...form, venue: e.target.value })} />
-          </Field>
+          </Grid2>
           <Field label="Description">
             <textarea required rows={4} className={inputClass} value={form.description} onChange={(e) => setForm({ ...form, description: e.target.value })} />
           </Field>
           <Field label="Image URL">
             <input required className={inputClass} value={form.image} onChange={(e) => setForm({ ...form, image: e.target.value })} />
           </Field>
+
+          <SectionTitle>Date, Time & Venue</SectionTitle>
+          <Grid3>
+            <Field label="Date">
+              <input type="date" required className={inputClass} value={form.date} onChange={(e) => setForm({ ...form, date: e.target.value })} />
+            </Field>
+            <Field label="Time">
+              <input type="time" required className={inputClass} value={form.time} onChange={(e) => setForm({ ...form, time: e.target.value })} />
+            </Field>
+            <Field label="Venue">
+              <input required className={inputClass} value={form.venue} onChange={(e) => setForm({ ...form, venue: e.target.value })} />
+            </Field>
+          </Grid3>
+
+          <SectionTitle>Organizer & Pricing</SectionTitle>
+          <Grid2>
+            <Field label="Organizer (optional)">
+              <input className={inputClass} value={form.organizer} onChange={(e) => setForm({ ...form, organizer: e.target.value })} />
+            </Field>
+            <Field label="Price (optional)" hint="e.g. Free, or 5,000 RWF">
+              <input className={inputClass} value={form.priceInfo} onChange={(e) => setForm({ ...form, priceInfo: e.target.value })} />
+            </Field>
+          </Grid2>
+
           <button type="submit" className="w-full rounded-md bg-blue-500 py-2.5 text-sm font-bold text-white hover:bg-blue-600">
             {editingId ? 'Save Changes' : 'Add Event'}
           </button>

@@ -4,7 +4,7 @@ import { useDocumentTitle } from '../../hooks/useDocumentTitle'
 import { useData } from '../../data/store'
 import type { Business, BusinessCategory, City } from '../../data/types'
 import Slideover from './components/Slideover'
-import { Field, inputClass } from './components/fields'
+import { Field, Grid2, ImageListField, SectionTitle, inputClass } from './components/fields'
 
 const CATEGORIES: BusinessCategory[] = [
   'Stay',
@@ -23,10 +23,12 @@ const EMPTY: Omit<Business, 'id'> = {
   city: 'Goma',
   tagline: '',
   description: '',
-  image: '',
+  images: [''],
   phone: '',
   whatsapp: '',
   email: '',
+  website: '',
+  hours: '',
   address: '',
   tier: 'free',
 }
@@ -52,8 +54,10 @@ export default function AdminBusinesses() {
   }
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    if (editingId) updateBusiness(editingId, form)
-    else addBusiness(form)
+    const payload = { ...form, images: form.images.filter((img) => img.trim() !== '') }
+    if (payload.images.length === 0) payload.images = ['']
+    if (editingId) updateBusiness(editingId, payload)
+    else addBusiness(payload)
     setOpen(false)
   }
   function handleDelete(id: string, name: string) {
@@ -117,11 +121,12 @@ export default function AdminBusinesses() {
       </div>
 
       <Slideover open={open} title={editingId ? 'Edit Business' : 'Add Business'} onClose={() => setOpen(false)}>
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <Field label="Name">
-            <input required className={inputClass} value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} />
-          </Field>
-          <div className="grid grid-cols-2 gap-3">
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <SectionTitle>Basic Info</SectionTitle>
+          <Grid2>
+            <Field label="Business Name">
+              <input required className={inputClass} value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} />
+            </Field>
             <Field label="Category">
               <select className={inputClass} value={form.category} onChange={(e) => setForm({ ...form, category: e.target.value as BusinessCategory })}>
                 {CATEGORIES.map((c) => (
@@ -129,6 +134,19 @@ export default function AdminBusinesses() {
                 ))}
               </select>
             </Field>
+          </Grid2>
+          <Field label="Tagline" hint="One short line shown on the directory card">
+            <input required className={inputClass} value={form.tagline} onChange={(e) => setForm({ ...form, tagline: e.target.value })} />
+          </Field>
+          <Field label="Description">
+            <textarea required rows={4} className={inputClass} value={form.description} onChange={(e) => setForm({ ...form, description: e.target.value })} />
+          </Field>
+
+          <SectionTitle>Photos</SectionTitle>
+          <ImageListField label="Photo URLs" images={form.images} onChange={(images) => setForm({ ...form, images })} />
+
+          <SectionTitle>Location & Hours</SectionTitle>
+          <Grid2>
             <Field label="City">
               <select className={inputClass} value={form.city} onChange={(e) => setForm({ ...form, city: e.target.value as City })}>
                 {CITIES.map((c) => (
@@ -136,34 +154,38 @@ export default function AdminBusinesses() {
                 ))}
               </select>
             </Field>
-          </div>
-          <Field label="Tagline">
-            <input required className={inputClass} value={form.tagline} onChange={(e) => setForm({ ...form, tagline: e.target.value })} />
-          </Field>
-          <Field label="Description">
-            <textarea required rows={4} className={inputClass} value={form.description} onChange={(e) => setForm({ ...form, description: e.target.value })} />
-          </Field>
-          <Field label="Image URL">
-            <input required className={inputClass} value={form.image} onChange={(e) => setForm({ ...form, image: e.target.value })} />
-          </Field>
-          <Field label="Phone">
-            <input required className={inputClass} value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} />
-          </Field>
-          <Field label="WhatsApp Link (optional)">
-            <input className={inputClass} value={form.whatsapp} onChange={(e) => setForm({ ...form, whatsapp: e.target.value })} />
-          </Field>
-          <Field label="Email (optional)">
-            <input className={inputClass} value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} />
-          </Field>
+            <Field label="Hours (optional)" hint="e.g. Daily 08:00 – 20:00">
+              <input className={inputClass} value={form.hours} onChange={(e) => setForm({ ...form, hours: e.target.value })} />
+            </Field>
+          </Grid2>
           <Field label="Address">
             <input required className={inputClass} value={form.address} onChange={(e) => setForm({ ...form, address: e.target.value })} />
           </Field>
-          <Field label="Tier">
+
+          <SectionTitle>Contact</SectionTitle>
+          <Grid2>
+            <Field label="Phone">
+              <input required className={inputClass} value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} />
+            </Field>
+            <Field label="WhatsApp Link (optional)">
+              <input className={inputClass} value={form.whatsapp} onChange={(e) => setForm({ ...form, whatsapp: e.target.value })} />
+            </Field>
+            <Field label="Email (optional)">
+              <input className={inputClass} value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} />
+            </Field>
+            <Field label="Website (optional)">
+              <input className={inputClass} value={form.website} onChange={(e) => setForm({ ...form, website: e.target.value })} />
+            </Field>
+          </Grid2>
+
+          <SectionTitle>Visibility</SectionTitle>
+          <Field label="Tier" hint="Featured listings show a badge and appear first">
             <select className={inputClass} value={form.tier} onChange={(e) => setForm({ ...form, tier: e.target.value as Business['tier'] })}>
               <option value="free">Free</option>
               <option value="featured">Featured</option>
             </select>
           </Field>
+
           <button type="submit" className="w-full rounded-md bg-blue-500 py-2.5 text-sm font-bold text-white hover:bg-blue-600">
             {editingId ? 'Save Changes' : 'Add Business'}
           </button>

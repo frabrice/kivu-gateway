@@ -2,23 +2,27 @@ import { useState, type FormEvent } from 'react'
 import { Pencil, Plus, Trash2 } from 'lucide-react'
 import { useDocumentTitle } from '../../hooks/useDocumentTitle'
 import { useData } from '../../data/store'
-import type { Opportunity, OpportunityType } from '../../data/types'
+import type { EmploymentType, Opportunity, OpportunityType } from '../../data/types'
 import Slideover from './components/Slideover'
-import { Field, inputClass } from './components/fields'
+import { Field, Grid2, Grid3, SectionTitle, inputClass } from './components/fields'
 import { formatDate } from '../../components/shared/EventCard'
 
 const CITIES = ['Goma', 'Gisenyi', 'Masisi'] as const
 const TYPES: OpportunityType[] = ['Job', 'Tender']
+const EMPLOYMENT_TYPES: EmploymentType[] = ['Full-time', 'Part-time', 'Contract', 'Internship']
 
 const EMPTY: Omit<Opportunity, 'id'> = {
   title: '',
   org: '',
   type: 'Job',
+  employmentType: 'Full-time',
   city: 'Goma',
   deadline: '',
   postedDate: new Date().toISOString().slice(0, 10),
+  compensation: '',
   description: '',
   contact: '',
+  applyLink: '',
 }
 
 export default function AdminJobs() {
@@ -42,8 +46,9 @@ export default function AdminJobs() {
   }
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    if (editingId) updateOpportunity(editingId, form)
-    else addOpportunity(form)
+    const payload = { ...form, employmentType: form.type === 'Job' ? form.employmentType : undefined }
+    if (editingId) updateOpportunity(editingId, payload)
+    else addOpportunity(payload)
     setOpen(false)
   }
   function handleDelete(id: string, title: string) {
@@ -101,14 +106,17 @@ export default function AdminJobs() {
       </div>
 
       <Slideover open={open} title={editingId ? 'Edit Job' : 'Add Job'} onClose={() => setOpen(false)}>
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <Field label="Title">
-            <input required className={inputClass} value={form.title} onChange={(e) => setForm({ ...form, title: e.target.value })} />
-          </Field>
-          <Field label="Organization">
-            <input required className={inputClass} value={form.org} onChange={(e) => setForm({ ...form, org: e.target.value })} />
-          </Field>
-          <div className="grid grid-cols-2 gap-3">
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <SectionTitle>Basic Info</SectionTitle>
+          <Grid2>
+            <Field label="Title">
+              <input required className={inputClass} value={form.title} onChange={(e) => setForm({ ...form, title: e.target.value })} />
+            </Field>
+            <Field label="Organization">
+              <input required className={inputClass} value={form.org} onChange={(e) => setForm({ ...form, org: e.target.value })} />
+            </Field>
+          </Grid2>
+          <Grid2>
             <Field label="Type">
               <select className={inputClass} value={form.type} onChange={(e) => setForm({ ...form, type: e.target.value as OpportunityType })}>
                 {TYPES.map((t) => (
@@ -123,21 +131,43 @@ export default function AdminJobs() {
                 ))}
               </select>
             </Field>
-          </div>
-          <div className="grid grid-cols-2 gap-3">
+          </Grid2>
+          {form.type === 'Job' && (
+            <Field label="Employment Type">
+              <select className={inputClass} value={form.employmentType} onChange={(e) => setForm({ ...form, employmentType: e.target.value as EmploymentType })}>
+                {EMPLOYMENT_TYPES.map((t) => (
+                  <option key={t} value={t}>{t}</option>
+                ))}
+              </select>
+            </Field>
+          )}
+          <Field label="Description">
+            <textarea required rows={4} className={inputClass} value={form.description} onChange={(e) => setForm({ ...form, description: e.target.value })} />
+          </Field>
+
+          <SectionTitle>Dates & Compensation</SectionTitle>
+          <Grid3>
             <Field label="Posted Date">
               <input type="date" required className={inputClass} value={form.postedDate} onChange={(e) => setForm({ ...form, postedDate: e.target.value })} />
             </Field>
             <Field label="Deadline">
               <input type="date" required className={inputClass} value={form.deadline} onChange={(e) => setForm({ ...form, deadline: e.target.value })} />
             </Field>
-          </div>
-          <Field label="Description">
-            <textarea required rows={4} className={inputClass} value={form.description} onChange={(e) => setForm({ ...form, description: e.target.value })} />
-          </Field>
-          <Field label="Contact Email">
-            <input required type="email" className={inputClass} value={form.contact} onChange={(e) => setForm({ ...form, contact: e.target.value })} />
-          </Field>
+            <Field label="Compensation (optional)" hint="e.g. Competitive">
+              <input className={inputClass} value={form.compensation} onChange={(e) => setForm({ ...form, compensation: e.target.value })} />
+            </Field>
+          </Grid3>
+
+          <SectionTitle>How to Apply</SectionTitle>
+          <Grid2>
+            <Field label="Contact Email">
+              <input required type="email" className={inputClass} value={form.contact} onChange={(e) => setForm({ ...form, contact: e.target.value })} />
+            </Field>
+            <Field label="Application Link (optional)">
+              <input className={inputClass} value={form.applyLink} onChange={(e) => setForm({ ...form, applyLink: e.target.value })} />
+            </Field>
+          </Grid2>
+
           <button type="submit" className="w-full rounded-md bg-blue-500 py-2.5 text-sm font-bold text-white hover:bg-blue-600">
             {editingId ? 'Save Changes' : 'Add Job'}
           </button>

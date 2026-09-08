@@ -9,6 +9,8 @@ export const INITIAL_EVENTS: Event[] = [
     time: '09:00',
     venue: 'Ihusi Business Hotel, Goma',
     category: 'Business & Networking',
+    organizer: 'Kivu Gateway',
+    priceInfo: '10,000 RWF (includes lunch)',
     description:
       'A one-day forum connecting entrepreneurs, investors and NGOs working across North Kivu, with panels on cross-border trade and financing.',
     image: 'https://images.unsplash.com/photo-1573164574397-dd250bc8a598?auto=format&fit=crop&w=900&q=55',
@@ -21,6 +23,8 @@ export const INITIAL_EVENTS: Event[] = [
     time: '18:30',
     venue: 'Lakeside grounds, Gisenyi',
     category: 'Music & Entertainment',
+    organizer: 'Gisenyi Cultural Collective',
+    priceInfo: 'Free entry',
     description: 'An evening of live Rwandan and Congolese music on the Gisenyi shoreline, with food stalls from local restaurants.',
     image: 'https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=900&q=50',
   },

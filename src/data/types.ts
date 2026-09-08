@@ -16,10 +16,12 @@ export type Business = {
   city: City
   tagline: string
   description: string
-  image: string
+  images: string[]
   phone: string
   whatsapp?: string
   email?: string
+  website?: string
+  hours?: string
   address: string
   tier: 'free' | 'featured'
 }
@@ -34,22 +36,28 @@ export type Event = {
   time: string
   venue: string
   category: EventCategory
+  organizer?: string
+  priceInfo?: string
   description: string
   image: string
 }
 
 export type OpportunityType = 'Job' | 'Tender'
+export type EmploymentType = 'Full-time' | 'Part-time' | 'Contract' | 'Internship'
 
 export type Opportunity = {
   id: string
   title: string
   org: string
   type: OpportunityType
+  employmentType?: EmploymentType
   city: City | 'Masisi'
   deadline: string // ISO yyyy-mm-dd
   postedDate: string // ISO yyyy-mm-dd
+  compensation?: string
   description: string
   contact: string
+  applyLink?: string
 }
 
 export type ArticleCategory = 'Food & Cafés' | 'Stay & Hotels' | 'Guides' | 'Nature & Wildlife'

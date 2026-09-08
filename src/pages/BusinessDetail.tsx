@@ -1,5 +1,5 @@
 import { Link, useParams } from 'react-router-dom'
-import { ArrowLeft, Mail, MapPin, MessageCircle, Phone, Star } from 'lucide-react'
+import { ArrowLeft, Clock, Globe, Mail, MapPin, MessageCircle, Phone, Star } from 'lucide-react'
 import { useDocumentTitle } from '../hooks/useDocumentTitle'
 import { useData } from '../data/store'
 
@@ -22,10 +22,12 @@ export default function BusinessDetail() {
     )
   }
 
+  const [cover, ...gallery] = business.images
+
   return (
     <>
       <div className="relative h-72 w-full overflow-hidden sm:h-96">
-        <img src={business.image} alt={business.name} className="h-full w-full object-cover" />
+        <img src={cover} alt={business.name} className="h-full w-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-t from-navy-900/80 via-navy-900/20 to-transparent" />
         <div className="absolute inset-x-0 bottom-0 mx-auto max-w-7xl px-4 pb-8 sm:px-6 lg:px-8">
           <Link to="/business/directory" className="mb-4 inline-flex items-center gap-1.5 text-xs font-semibold text-white/80 hover:text-white">
@@ -49,6 +51,14 @@ export default function BusinessDetail() {
           <div className="lg:col-span-2">
             <h2 className="font-heading text-lg font-bold text-navy-700">About</h2>
             <p className="mt-3 text-sm leading-relaxed text-navy-500 sm:text-base">{business.description}</p>
+
+            {gallery.length > 0 && (
+              <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3">
+                {gallery.map((src) => (
+                  <img key={src} src={src} alt={business.name} loading="lazy" decoding="async" className="h-28 w-full rounded-lg object-cover sm:h-32" />
+                ))}
+              </div>
+            )}
           </div>
 
           <div className="rounded-xl border border-navy-100 bg-white p-6 shadow-card">
@@ -58,6 +68,12 @@ export default function BusinessDetail() {
                 <MapPin size={16} className="mt-0.5 shrink-0 text-blue-600" />
                 <span className="text-navy-600">{business.address}</span>
               </li>
+              {business.hours && (
+                <li className="flex items-start gap-2.5">
+                  <Clock size={16} className="mt-0.5 shrink-0 text-blue-600" />
+                  <span className="text-navy-600">{business.hours}</span>
+                </li>
+              )}
               <li className="flex items-center gap-2.5">
                 <Phone size={16} className="shrink-0 text-blue-600" />
                 <a href={`tel:${business.phone.replace(/\s/g, '')}`} className="text-navy-600 hover:text-blue-600">
@@ -77,6 +93,14 @@ export default function BusinessDetail() {
                   <Mail size={16} className="shrink-0 text-blue-600" />
                   <a href={`mailto:${business.email}`} className="text-navy-600 hover:text-blue-600">
                     {business.email}
+                  </a>
+                </li>
+              )}
+              {business.website && (
+                <li className="flex items-center gap-2.5">
+                  <Globe size={16} className="shrink-0 text-blue-600" />
+                  <a href={business.website} target="_blank" rel="noopener noreferrer" className="text-navy-600 hover:text-blue-600">
+                    {business.website.replace(/^https?:\/\//, '')}
                   </a>
                 </li>
               )}

@@ -10,7 +10,7 @@ export default function BusinessCard({ business }: { business: Business }) {
     >
       <div className="relative h-40 w-full overflow-hidden">
         <img
-          src={business.image}
+          src={business.images[0]}
           alt={business.name}
           loading="lazy"
           decoding="async"
