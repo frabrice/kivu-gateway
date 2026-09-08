@@ -3,11 +3,13 @@ import { CheckCircle2, Clock, Mail, MapPin, MessageCircle, Phone } from 'lucide-
 import PageHero from '../components/layout/PageHero'
 import WhatsAppButton from '../components/layout/WhatsAppButton'
 import SectionHeading from '../components/shared/SectionHeading'
+import { useDocumentTitle } from '../hooks/useDocumentTitle'
 import { CONTACT } from '../data/site'
 
-const TOPICS = ['Business Connections', 'Trade & Sourcing', 'Property', 'Hospitality', 'Market Access', 'Tourism', 'Other']
+const TOPICS = ['Starting a Business', 'Business Directory Listing', 'Travel & Border', 'Events', 'Opportunities & Tenders', 'Journal / Press', 'Other']
 
 export default function Contact() {
+  useDocumentTitle('Contact', "Get in touch with Kivu Gateway — questions about business, travel, listings or events in Goma and Gisenyi.")
   const [submitted, setSubmitted] = useState(false)
 
   function handleSubmit(e: FormEvent<HTMLFormElement>) {

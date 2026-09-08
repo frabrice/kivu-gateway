@@ -1,11 +1,28 @@
-export const NAV_ITEMS = [
+export type NavLink = { label: string; to: string; description?: string }
+export type NavItem = NavLink | { label: string; children: NavLink[] }
+
+export const NAV_ITEMS: NavItem[] = [
   { label: 'Home', to: '/' },
-  { label: 'Services', to: '/services' },
-  { label: 'Market Access', to: '/market-access' },
-  { label: 'Tourism', to: '/tourism' },
+  {
+    label: 'Explore',
+    children: [
+      { label: 'Destinations', to: '/explore', description: 'Goma, Masisi & Virunga' },
+      { label: 'Travel & Border Guide', to: '/explore/travel', description: 'Crossing Gisenyi ⇄ Goma' },
+    ],
+  },
+  {
+    label: 'Business',
+    children: [
+      { label: 'Start a Business', to: '/business/start', description: 'Setup guide for Goma' },
+      { label: 'Directory', to: '/business/directory', description: 'Find a business' },
+    ],
+  },
+  { label: 'Events', to: '/events' },
+  { label: 'Opportunities', to: '/opportunities' },
+  { label: 'Journal', to: '/journal' },
   { label: 'About Us', to: '/about' },
   { label: 'Contact', to: '/contact' },
-] as const
+]
 
 export const CONTACT = {
   phoneDisplay: '+250 783 171 000',
@@ -17,90 +34,55 @@ export const CONTACT = {
 }
 
 export const STATS = [
-  { value: '500+', label: 'Business Partners & Connections' },
-  { value: '200+', label: 'Properties & Hospitality Partners' },
-  { value: '100+', label: 'Tourism Experiences Curated' },
-  { value: '1 Goal', label: 'To Connect, Activate and Create Value' },
+  { value: '2', label: 'Cities Covered — Goma & Gisenyi' },
+  { value: '10+', label: 'Businesses Listed in Our Directory' },
+  { value: '5+', label: 'Upcoming Events & Opportunities' },
+  { value: '1 Goal', label: 'To Connect, Inform and Create Value' },
 ]
 
 export type Pillar = {
-  id: 'business' | 'trade' | 'property' | 'hospitality' | 'tourism'
+  id: 'explore' | 'start-business' | 'directory' | 'events' | 'opportunities' | 'journal'
   title: string
   short: string
   to: string
-  image: string
 }
 
 export const PILLARS: Pillar[] = [
   {
-    id: 'business',
-    title: 'Business Connections',
-    short: 'Trusted partners and opportunities for entrepreneurs and investors.',
-    to: '/services#business',
-    image: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1000&q=55',
+    id: 'explore',
+    title: 'Explore the Region',
+    short: 'Goma, Masisi and Virunga — plus the Gisenyi–Goma border guide.',
+    to: '/explore',
   },
   {
-    id: 'trade',
-    title: 'Trade & Sourcing',
-    short: 'Buyers and suppliers connected across the region.',
-    to: '/services#trade',
-    image: 'https://images.unsplash.com/photo-1494412651409-8963ce7935a7?auto=format&fit=crop&w=1000&q=42',
+    id: 'start-business',
+    title: 'Start a Business',
+    short: 'Everything you need to set up and register in Goma.',
+    to: '/business/start',
   },
   {
-    id: 'property',
-    title: 'Real Estate & Property',
-    short: 'Sourcing, sales, rentals and property management.',
-    to: '/services#property',
-    image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1000&q=55',
+    id: 'directory',
+    title: 'Business Directory',
+    short: 'Find trusted hotels, restaurants, services and more.',
+    to: '/business/directory',
   },
   {
-    id: 'hospitality',
-    title: 'Hospitality',
-    short: 'Quality stays, dining and hospitality for every visitor.',
-    to: '/services#hospitality',
-    image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1000&q=55',
+    id: 'events',
+    title: 'Events',
+    short: "What's happening in Goma and Gisenyi, and when.",
+    to: '/events',
   },
   {
-    id: 'tourism',
-    title: 'Tourism & Experiences',
-    short: 'Nature, culture and adventure across the Great Lakes.',
-    to: '/tourism',
-    image: 'https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=1000&q=55',
-  },
-]
-
-export const MARKET_ACCESS_SERVICES = [
-  {
-    id: 'product-launch',
-    title: 'Product Launch',
-    tagline: 'Introduce. Activate. Grow.',
-    description:
-      'We take new products into the Great Lakes market — from retail activation and sampling campaigns to distributor introductions — so your launch lands with the right audience from day one.',
-    steps: ['Market & audience research', 'Retail & distributor matchmaking', 'Activation campaign', 'Performance review'],
+    id: 'opportunities',
+    title: 'Opportunities',
+    short: 'Jobs and tenders from local companies and NGOs.',
+    to: '/opportunities',
   },
   {
-    id: 'property-launch',
-    title: 'Property Launch',
-    tagline: 'Promote. Connect. Lease or Sell.',
-    description:
-      'We market new developments, listings and units to qualified buyers, tenants and investors across our network, handling promotion, viewings coordination and lead qualification.',
-    steps: ['Listing & positioning', 'Marketing across our channels', 'Buyer/tenant qualification', 'Viewings & handover support'],
-  },
-  {
-    id: 'hotel-business-launch',
-    title: 'Hotel & Business Launch',
-    tagline: 'Attract. Engage. Succeed.',
-    description:
-      'From new hotels to restaurants and service businesses, we build the local visibility, partnerships and early customer base a launch needs to succeed in a new market.',
-    steps: ['Local market positioning', 'Partnership & referral network', 'Launch promotion', 'Guest/customer feedback loop'],
-  },
-  {
-    id: 'market-entry',
-    title: 'Market Entry & Representation',
-    tagline: 'Research. Connect. Represent.',
-    description:
-      'For companies entering Rwanda or Eastern DRC for the first time, we act as your local eyes, ears and representative — research, introductions, and ongoing on-the-ground support.',
-    steps: ['Market entry research', 'Regulatory & partner introductions', 'Local representation', 'Ongoing account support'],
+    id: 'journal',
+    title: 'Journal',
+    short: 'Lifestyle guides — best cafés, hotels and local tips.',
+    to: '/journal',
   },
 ]
 
@@ -115,57 +97,30 @@ export type Destination = {
 
 export const DESTINATIONS: Destination[] = [
   {
-    id: 'rubavu-gisenyi',
-    name: 'Rubavu / Gisenyi',
-    tags: 'Lake Kivu · Beaches · Restaurants · Hotels',
-    image: 'https://images.unsplash.com/photo-1675793049324-32d4932eafff?auto=format&fit=crop&w=1000&q=55',
-    description:
-      'Rwanda’s lakeside resort town on the shores of Lake Kivu, known for its beaches, waterfront restaurants and relaxed border-town energy with Goma just across the water.',
-    activities: ['Lake Kivu beaches', 'Waterfront dining', 'Boat trips', 'Border-town culture'],
-  },
-  {
     id: 'goma',
     name: 'Goma',
-    tags: 'Business · Culture · Lake Kivu Life',
-    image: 'https://images.unsplash.com/photo-1483450388369-9ed95738483c?auto=format&fit=crop&w=1000&q=55',
+    tags: 'Business · Culture · Lake Kivu',
+    image: 'https://images.unsplash.com/photo-1589715718565-223fdf9b7cd4?auto=format&fit=crop&w=1200&q=55',
     description:
-      'A major Eastern DRC commercial hub on Lake Kivu, blending business opportunity with vibrant Congolese culture, music and markets.',
-    activities: ['Business networking', 'Local markets', 'Music & nightlife', 'Lakeside views'],
+      'A major Eastern DRC commercial hub on the shores of Lake Kivu, blending business opportunity with vibrant Congolese culture, markets and music — just across the border from Gisenyi.',
+    activities: ['Business networking', 'Local markets', 'Lakeside dining', 'Live music'],
   },
   {
-    id: 'musanze',
-    name: 'Musanze',
-    tags: 'Volcanoes · Nature · Adventure · Hospitality',
-    image: 'https://images.unsplash.com/photo-1547970810-dc1eac37d174?auto=format&fit=crop&w=1000&q=55',
+    id: 'masisi',
+    name: 'Masisi',
+    tags: 'Highlands · Farming Communities · Nature',
+    image: 'https://images.unsplash.com/photo-1630509866948-7ebf55e1685f?auto=format&fit=crop&w=1200&q=55',
     description:
-      'Gateway to the Virunga volcanoes, Musanze is Rwanda’s adventure capital — gorilla trekking, volcano hikes and a fast-growing hospitality scene.',
-    activities: ['Gorilla trekking', 'Volcano hikes', 'Cave exploration', 'Lodges & hospitality'],
+      'A highland territory of terraced hills and farming communities west of Goma — a quieter, greener side of North Kivu for those wanting to see rural life in the region.',
+    activities: ['Highland scenery', 'Community visits', 'Farming country', 'Cooler climate'],
   },
   {
-    id: 'karongi',
-    name: 'Karongi',
-    tags: 'Relaxation · Water Activities',
-    image: 'https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1000&q=55',
+    id: 'virunga',
+    name: 'Virunga National Park',
+    tags: 'Gorilla Trekking · Volcanoes · Wildlife',
+    image: 'https://images.unsplash.com/photo-1509897739002-791fa79aac9b?auto=format&fit=crop&w=1200&q=50',
     description:
-      'A quieter stretch of Lake Kivu known for calm bays, island boat trips and relaxed lakeside stays — popular for retreats and weekend getaways.',
-    activities: ['Kayaking', 'Island boat trips', 'Lakeside retreats', 'Swimming'],
-  },
-  {
-    id: 'gishwati',
-    name: 'Gishwati',
-    tags: 'Nature · Hiking · Wildlife',
-    image: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1000&q=42',
-    description:
-      'Part of the Gishwati-Mukura rainforest landscape, offering guided forest hikes, chimpanzee tracking and community-based tourism.',
-    activities: ['Forest hiking', 'Chimpanzee tracking', 'Birdwatching', 'Community tourism'],
-  },
-  {
-    id: 'nyungwe',
-    name: 'Nyungwe',
-    tags: 'Forest · Primates · Adventure',
-    image: 'https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=1000&q=55',
-    description:
-      'One of Africa’s oldest rainforests, home to chimpanzees and colobus monkeys, a canopy walkway, and waterfall trails through misty highland forest.',
-    activities: ['Canopy walk', 'Primate tracking', 'Waterfall trails', 'Tea plantation tours'],
+      "Africa's oldest national park and one of the last places on Earth to trek mountain gorillas in the wild, set against the Virunga volcanic range north of Goma.",
+    activities: ['Gorilla trekking', 'Volcano views', 'Ranger-led tours', 'Rainforest wildlife'],
   },
 ]

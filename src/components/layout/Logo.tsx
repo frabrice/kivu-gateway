@@ -17,7 +17,7 @@ export default function Logo({ variant = 'dark' }: LogoProps) {
           <span className={isLight ? 'text-blue-300' : 'text-blue-600'}>GATEWAY</span>
         </span>
         <span className={`block text-[10px] font-medium uppercase tracking-[0.2em] ${isLight ? 'text-navy-100' : 'text-navy-400'}`}>
-          Your Gateway To The Great Lakes
+          Goma &amp; Gisenyi
         </span>
       </span>
     </Link>

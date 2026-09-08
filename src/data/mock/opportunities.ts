@@ -1,0 +1,48 @@
+import type { Opportunity } from '../types'
+
+export const INITIAL_OPPORTUNITIES: Opportunity[] = [
+  {
+    id: 'program-officer-glra',
+    title: 'Program Officer — Livelihoods',
+    org: 'Grands Lacs Relief Alliance',
+    type: 'Job',
+    city: 'Goma',
+    deadline: '2026-09-30',
+    postedDate: '2026-09-01',
+    description: 'Coordinate livelihoods programming for displaced households in North Kivu. 2+ years NGO experience required, French essential.',
+    contact: 'careers@grandslacsrelief.org',
+  },
+  {
+    id: 'tender-office-equipment',
+    title: 'Supply of Office Equipment & IT Hardware',
+    org: 'North Kivu Health Coalition',
+    type: 'Tender',
+    city: 'Goma',
+    deadline: '2026-09-25',
+    postedDate: '2026-09-03',
+    description: 'Open tender for the supply and installation of office furniture, laptops and networking equipment for two clinic offices in Goma.',
+    contact: 'procurement@nkhealthcoalition.org',
+  },
+  {
+    id: 'business-development-associate-kg',
+    title: 'Business Development Associate',
+    org: 'Kivu Gateway',
+    type: 'Job',
+    city: 'Gisenyi',
+    deadline: '2026-10-10',
+    postedDate: '2026-09-05',
+    description: 'Help grow our business directory across Gisenyi and Goma — onboarding local businesses, verifying listings and supporting events.',
+    contact: 'kivugateway@gmail.com',
+  },
+  {
+    id: 'tender-community-borehole',
+    title: 'Construction of Community Borehole',
+    org: 'Eastern DRC WASH Initiative',
+    type: 'Tender',
+    city: 'Masisi',
+    deadline: '2026-10-18',
+    postedDate: '2026-09-04',
+    description: 'Tender for the drilling and installation of a community borehole and hand pump serving three villages in Masisi territory.',
+    contact: 'tenders@easterndrcwash.org',
+  },
+]

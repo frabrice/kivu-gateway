@@ -3,19 +3,22 @@ import { ArrowRight, Compass, MapPin } from 'lucide-react'
 import PageHero from '../components/layout/PageHero'
 import SectionHeading from '../components/shared/SectionHeading'
 import CTABand from '../components/shared/CTABand'
+import { useDocumentTitle } from '../hooks/useDocumentTitle'
 import { DESTINATIONS } from '../data/site'
 
-export default function Tourism() {
+export default function Explore() {
+  useDocumentTitle('Explore Goma, Masisi & Virunga', 'Discover Goma, the Masisi highlands and Virunga National Park — nature, culture and gorilla trekking around Lake Kivu.')
+
   return (
     <>
       <PageHero
-        title="Tourism & Experiences"
-        subtitle="Discover the Great Lakes through nature, culture, adventure and authentic local experiences across Rwanda and Eastern DRC."
-        image="https://images.unsplash.com/photo-1547970810-dc1eac37d174?auto=format&fit=crop&w=1400&q=45"
+        title="Explore the Region"
+        subtitle="Goma, the Masisi highlands and Virunga National Park — nature, culture and adventure around Lake Kivu."
+        image="https://images.unsplash.com/photo-1509897739002-791fa79aac9b?auto=format&fit=crop&w=1400&q=45"
       />
 
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <SectionHeading eyebrow="Explore The Region" title="Six destinations, one great lake" align="left" />
+        <SectionHeading eyebrow="Destinations" title="Three places to start" align="left" />
 
         <div className="mt-12 space-y-16">
           {DESTINATIONS.map((destination, i) => (
@@ -51,10 +54,10 @@ export default function Tourism() {
                   ))}
                 </ul>
                 <Link
-                  to="/contact"
-                  className="mt-6 inline-flex items-center gap-1.5 text-sm font-bold uppercase tracking-wide text-blue-600 hover:text-blue-700"
+                  to="/business/directory"
+                  className="mt-6 inline-flex items-center gap-1.5 text-sm font-bold text-blue-600 hover:text-blue-700"
                 >
-                  Plan a Visit <ArrowRight size={15} />
+                  Find Tour Operators & Stays <ArrowRight size={15} />
                 </Link>
               </div>
             </div>
@@ -66,21 +69,21 @@ export default function Tourism() {
         <div className="mx-auto max-w-5xl px-4 text-center sm:px-6 lg:px-8">
           <Compass size={32} className="mx-auto text-blue-600" />
           <SectionHeading
-            title="Not sure where to start?"
-            description="Tell us your dates, interests and budget — nature, culture, adventure or relaxation — and we'll curate a Great Lakes itinerary for you."
+            title="Crossing from Gisenyi?"
+            description="Read our border guide before you travel — documents, process, timing and a few tips from people who cross regularly."
           />
           <Link
-            to="/contact"
+            to="/explore/travel"
             className="mt-6 inline-flex items-center gap-2 rounded-md bg-navy-600 px-7 py-3 text-sm font-bold text-white transition hover:bg-navy-500"
           >
-            Curate My Experience <ArrowRight size={16} />
+            Read the Border Guide <ArrowRight size={16} />
           </Link>
         </div>
       </section>
 
       <CTABand
-        title="Ready to Explore the Great Lakes?"
-        description="From lakeside relaxation to volcano treks and rainforest canopy walks — let's plan your experience."
+        title="Ready to Explore Goma, Masisi & Virunga?"
+        description="From gorilla trekking to lakeside markets — let's help you plan the trip."
       />
     </>
   )

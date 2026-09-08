@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom'
 import { Mail, MapPin, MessageCircle, Phone } from 'lucide-react'
 import Logo from './Logo'
-import { CONTACT, NAV_ITEMS, STATS } from '../../data/site'
+import { CONTACT, NAV_ITEMS, STATS, type NavItem } from '../../data/site'
+
+const FOOTER_LINKS = NAV_ITEMS.flatMap((item: NavItem) => ('children' in item ? item.children : [item]))
 
 export default function Footer() {
   return (
@@ -11,8 +13,8 @@ export default function Footer() {
           <div>
             <h3 className="font-heading text-lg font-bold text-blue-500">Your Next Opportunity Starts Here</h3>
             <p className="mt-3 max-w-xs text-sm text-navy-100">
-              Whether you want to do business, source products, find property, launch a product, book a stay or
-              explore the Great Lakes — Kivu Gateway is here to connect you.
+              Whether you're starting a business, crossing the border, exploring the region or looking for your next
+              opportunity — Kivu Gateway connects Goma and Gisenyi.
             </p>
             <Link
               to="/contact"
@@ -59,7 +61,7 @@ export default function Footer() {
         <div className="mt-10 flex flex-col items-center justify-between gap-6 border-t border-white/10 pt-8 sm:flex-row">
           <Logo variant="light" />
           <nav className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
-            {NAV_ITEMS.map((item) => (
+            {FOOTER_LINKS.map((item) => (
               <Link key={item.to} to={item.to} className="text-xs font-semibold uppercase tracking-wide text-navy-100 hover:text-blue-400">
                 {item.label}
               </Link>
@@ -68,7 +70,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-6 border-t border-white/10 pt-6 text-center text-xs text-navy-100">
-          © {new Date().getFullYear()} Kivu Gateway. All rights reserved. · Connecting Rwanda &amp; Eastern DRC.
+          © {new Date().getFullYear()} Kivu Gateway. All rights reserved. · Connecting Goma &amp; Gisenyi.
         </div>
       </div>
     </footer>
