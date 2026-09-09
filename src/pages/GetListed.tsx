@@ -1,9 +1,10 @@
-import { useState, type FormEvent } from 'react'
+import { useState, type ChangeEvent, type FormEvent } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { Briefcase, CalendarDays, CheckCircle2, Newspaper, Store } from 'lucide-react'
 import PageHero from '../components/layout/PageHero'
 import WhatsAppButton from '../components/layout/WhatsAppButton'
 import { useDocumentTitle } from '../hooks/useDocumentTitle'
+import { useData } from '../data/store'
 import type { ArticleCategory, BusinessCategory, City } from '../data/types'
 
 type ListingType = 'business' | 'job' | 'event' | 'article'
@@ -36,20 +37,51 @@ const CONFIRMATION_COPY: Record<ListingType, string> = {
   article: 'your story pitch',
 }
 
+const FIELDS_BY_TYPE: Record<ListingType, string[]> = {
+  business: ['businessName', 'category', 'city', 'about'],
+  job: ['jobTitle', 'organization', 'type', 'deadline', 'description'],
+  event: ['eventTitle', 'city', 'date', 'time', 'venue', 'description'],
+  article: ['title', 'category', 'pitch'],
+}
+
 function isListingType(value: string | null): value is ListingType {
   return value === 'business' || value === 'job' || value === 'event' || value === 'article'
 }
 
 export default function GetListed() {
   useDocumentTitle('Get Listed', 'List your business, post a job or tender, submit an event, or pitch a Lifestyle story on Kivu Gateway.')
+  const { addSubmission } = useData()
   const [searchParams] = useSearchParams()
   const initialType = searchParams.get('type')
   const [type, setType] = useState<ListingType>(isListingType(initialType) ? initialType : 'business')
+  const [fields, setFields] = useState<Record<string, string>>({})
+  const [contactName, setContactName] = useState('')
+  const [contactInfo, setContactInfo] = useState('')
   const [submitted, setSubmitted] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
+  const [error, setError] = useState('')
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  function handleFieldChange(e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) {
+    const { name, value } = e.target
+    setFields((prev) => ({ ...prev, [name]: value }))
+  }
+
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    setSubmitted(true)
+    setError('')
+    const payload: Record<string, string> = {}
+    for (const key of FIELDS_BY_TYPE[type]) {
+      payload[key] = fields[key] ?? ''
+    }
+    setSubmitting(true)
+    try {
+      await addSubmission(type, payload, contactName, contactInfo)
+      setSubmitted(true)
+    } catch {
+      setError('Something went wrong submitting this — please try again or reach us on WhatsApp.')
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   return (
@@ -66,8 +98,8 @@ export default function GetListed() {
             <CheckCircle2 size={40} className="text-blue-600" />
             <h2 className="mt-4 font-heading text-xl font-bold text-navy-700">Thanks — we've got it</h2>
             <p className="mt-2 max-w-sm text-sm text-navy-400">
-              This is a demo submission form. Once our review process is connected, requests for {CONFIRMATION_COPY[type]} will
-              reach our team directly — in the meantime, reach us on WhatsApp or email and we'll follow up personally.
+              Your request for {CONFIRMATION_COPY[type]} has been sent to our team for review. We'll follow up with you directly
+              — in the meantime, feel free to reach us on WhatsApp or email.
             </p>
             <div className="mt-6">
               <WhatsAppButton className="!border-navy-200 !text-navy-700 hover:!bg-navy-50" />
@@ -103,11 +135,11 @@ export default function GetListed() {
                   <div className="grid gap-5 sm:grid-cols-2">
                     <label className="block">
                       <span className="text-xs font-bold uppercase tracking-wide text-navy-500">Business Name</span>
-                      <input required className={inputClass} />
+                      <input name="businessName" required className={inputClass} value={fields.businessName ?? ''} onChange={handleFieldChange} />
                     </label>
                     <label className="block">
                       <span className="text-xs font-bold uppercase tracking-wide text-navy-500">Category</span>
-                      <select required className={inputClass} defaultValue="">
+                      <select name="category" required className={inputClass} value={fields.category ?? ''} onChange={handleFieldChange}>
                         <option value="" disabled>Select a category</option>
                         {BUSINESS_CATEGORIES.map((c) => (
                           <option key={c} value={c}>{c}</option>
@@ -117,7 +149,7 @@ export default function GetListed() {
                   </div>
                   <label className="block">
                     <span className="text-xs font-bold uppercase tracking-wide text-navy-500">City</span>
-                    <select required className={inputClass} defaultValue="">
+                    <select name="city" required className={inputClass} value={fields.city ?? ''} onChange={handleFieldChange}>
                       <option value="" disabled>Select a city</option>
                       {CITIES.map((c) => (
                         <option key={c} value={c}>{c}</option>
@@ -126,7 +158,15 @@ export default function GetListed() {
                   </label>
                   <label className="block">
                     <span className="text-xs font-bold uppercase tracking-wide text-navy-500">Tell us about the business</span>
-                    <textarea required rows={4} placeholder="What you offer, and anything that makes it stand out" className={inputClass} />
+                    <textarea
+                      name="about"
+                      required
+                      rows={4}
+                      placeholder="What you offer, and anything that makes it stand out"
+                      className={inputClass}
+                      value={fields.about ?? ''}
+                      onChange={handleFieldChange}
+                    />
                   </label>
                 </>
               )}
@@ -136,17 +176,17 @@ export default function GetListed() {
                   <div className="grid gap-5 sm:grid-cols-2">
                     <label className="block">
                       <span className="text-xs font-bold uppercase tracking-wide text-navy-500">Job or Tender Title</span>
-                      <input required className={inputClass} />
+                      <input name="jobTitle" required className={inputClass} value={fields.jobTitle ?? ''} onChange={handleFieldChange} />
                     </label>
                     <label className="block">
                       <span className="text-xs font-bold uppercase tracking-wide text-navy-500">Organization</span>
-                      <input required className={inputClass} />
+                      <input name="organization" required className={inputClass} value={fields.organization ?? ''} onChange={handleFieldChange} />
                     </label>
                   </div>
                   <div className="grid gap-5 sm:grid-cols-2">
                     <label className="block">
                       <span className="text-xs font-bold uppercase tracking-wide text-navy-500">Type</span>
-                      <select required className={inputClass} defaultValue="">
+                      <select name="type" required className={inputClass} value={fields.type ?? ''} onChange={handleFieldChange}>
                         <option value="" disabled>Select type</option>
                         <option value="Job">Job</option>
                         <option value="Tender">Tender</option>
@@ -154,12 +194,20 @@ export default function GetListed() {
                     </label>
                     <label className="block">
                       <span className="text-xs font-bold uppercase tracking-wide text-navy-500">Application Deadline</span>
-                      <input required type="date" className={inputClass} />
+                      <input name="deadline" required type="date" className={inputClass} value={fields.deadline ?? ''} onChange={handleFieldChange} />
                     </label>
                   </div>
                   <label className="block">
                     <span className="text-xs font-bold uppercase tracking-wide text-navy-500">Description</span>
-                    <textarea required rows={4} placeholder="Role, requirements, how to apply" className={inputClass} />
+                    <textarea
+                      name="description"
+                      required
+                      rows={4}
+                      placeholder="Role, requirements, how to apply"
+                      className={inputClass}
+                      value={fields.description ?? ''}
+                      onChange={handleFieldChange}
+                    />
                   </label>
                 </>
               )}
@@ -168,12 +216,12 @@ export default function GetListed() {
                 <>
                   <label className="block">
                     <span className="text-xs font-bold uppercase tracking-wide text-navy-500">Event Title</span>
-                    <input required className={inputClass} />
+                    <input name="eventTitle" required className={inputClass} value={fields.eventTitle ?? ''} onChange={handleFieldChange} />
                   </label>
                   <div className="grid gap-5 sm:grid-cols-3">
                     <label className="block">
                       <span className="text-xs font-bold uppercase tracking-wide text-navy-500">City</span>
-                      <select required className={inputClass} defaultValue="">
+                      <select name="city" required className={inputClass} value={fields.city ?? ''} onChange={handleFieldChange}>
                         <option value="" disabled>Select</option>
                         {CITIES.map((c) => (
                           <option key={c} value={c}>{c}</option>
@@ -182,20 +230,20 @@ export default function GetListed() {
                     </label>
                     <label className="block">
                       <span className="text-xs font-bold uppercase tracking-wide text-navy-500">Date</span>
-                      <input required type="date" className={inputClass} />
+                      <input name="date" required type="date" className={inputClass} value={fields.date ?? ''} onChange={handleFieldChange} />
                     </label>
                     <label className="block">
                       <span className="text-xs font-bold uppercase tracking-wide text-navy-500">Time</span>
-                      <input required type="time" className={inputClass} />
+                      <input name="time" required type="time" className={inputClass} value={fields.time ?? ''} onChange={handleFieldChange} />
                     </label>
                   </div>
                   <label className="block">
                     <span className="text-xs font-bold uppercase tracking-wide text-navy-500">Venue</span>
-                    <input required className={inputClass} />
+                    <input name="venue" required className={inputClass} value={fields.venue ?? ''} onChange={handleFieldChange} />
                   </label>
                   <label className="block">
                     <span className="text-xs font-bold uppercase tracking-wide text-navy-500">Description</span>
-                    <textarea required rows={4} className={inputClass} />
+                    <textarea name="description" required rows={4} className={inputClass} value={fields.description ?? ''} onChange={handleFieldChange} />
                   </label>
                 </>
               )}
@@ -205,11 +253,11 @@ export default function GetListed() {
                   <div className="grid gap-5 sm:grid-cols-2">
                     <label className="block">
                       <span className="text-xs font-bold uppercase tracking-wide text-navy-500">Proposed Title</span>
-                      <input required className={inputClass} />
+                      <input name="title" required className={inputClass} value={fields.title ?? ''} onChange={handleFieldChange} />
                     </label>
                     <label className="block">
                       <span className="text-xs font-bold uppercase tracking-wide text-navy-500">Category</span>
-                      <select required className={inputClass} defaultValue="">
+                      <select name="category" required className={inputClass} value={fields.category ?? ''} onChange={handleFieldChange}>
                         <option value="" disabled>Select a category</option>
                         {ARTICLE_CATEGORIES.map((c) => (
                           <option key={c} value={c}>{c}</option>
@@ -219,7 +267,15 @@ export default function GetListed() {
                   </div>
                   <label className="block">
                     <span className="text-xs font-bold uppercase tracking-wide text-navy-500">Your Pitch</span>
-                    <textarea required rows={4} placeholder="What's the story, and why should we cover it?" className={inputClass} />
+                    <textarea
+                      name="pitch"
+                      required
+                      rows={4}
+                      placeholder="What's the story, and why should we cover it?"
+                      className={inputClass}
+                      value={fields.pitch ?? ''}
+                      onChange={handleFieldChange}
+                    />
                   </label>
                 </>
               )}
@@ -227,19 +283,22 @@ export default function GetListed() {
               <div className="grid gap-5 border-t border-navy-100 pt-5 sm:grid-cols-2">
                 <label className="block">
                   <span className="text-xs font-bold uppercase tracking-wide text-navy-500">Your Name</span>
-                  <input required className={inputClass} />
+                  <input required className={inputClass} value={contactName} onChange={(e) => setContactName(e.target.value)} />
                 </label>
                 <label className="block">
                   <span className="text-xs font-bold uppercase tracking-wide text-navy-500">Your Email or Phone</span>
-                  <input required className={inputClass} />
+                  <input required className={inputClass} value={contactInfo} onChange={(e) => setContactInfo(e.target.value)} />
                 </label>
               </div>
 
+              {error && <p className="text-xs font-semibold text-red-500">{error}</p>}
+
               <button
                 type="submit"
-                className="inline-flex items-center justify-center rounded-md bg-blue-500 px-7 py-3 text-sm font-bold text-white transition hover:bg-blue-600"
+                disabled={submitting}
+                className="inline-flex items-center justify-center rounded-md bg-blue-500 px-7 py-3 text-sm font-bold text-white transition hover:bg-blue-600 disabled:opacity-60"
               >
-                Submit
+                {submitting ? 'Submitting…' : 'Submit'}
               </button>
             </form>
           </>

@@ -52,16 +52,25 @@ export default function AdminBusinesses() {
     setForm(rest)
     setOpen(true)
   }
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
     const payload = { ...form, images: form.images.filter((img) => img.trim() !== '') }
     if (payload.images.length === 0) payload.images = ['']
-    if (editingId) updateBusiness(editingId, payload)
-    else addBusiness(payload)
-    setOpen(false)
+    try {
+      if (editingId) await updateBusiness(editingId, payload)
+      else await addBusiness(payload)
+      setOpen(false)
+    } catch (err) {
+      alert(err instanceof Error ? err.message : 'Something went wrong saving this business.')
+    }
   }
-  function handleDelete(id: string, name: string) {
-    if (confirm(`Delete "${name}"? This cannot be undone.`)) deleteBusiness(id)
+  async function handleDelete(id: string, name: string) {
+    if (!confirm(`Delete "${name}"? This cannot be undone.`)) return
+    try {
+      await deleteBusiness(id)
+    } catch (err) {
+      alert(err instanceof Error ? err.message : 'Something went wrong deleting this business.')
+    }
   }
 
   return (

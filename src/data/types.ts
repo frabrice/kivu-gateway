@@ -74,3 +74,16 @@ export type Article = {
   publishedDate: string // ISO yyyy-mm-dd
   published: boolean
 }
+
+export type SubmissionType = 'business' | 'job' | 'event' | 'article'
+export type SubmissionStatus = 'pending' | 'reviewed' | 'dismissed'
+
+export type Submission = {
+  id: string
+  type: SubmissionType
+  payload: Record<string, string>
+  contactName: string
+  contactInfo: string
+  status: SubmissionStatus
+  createdAt: string
+}

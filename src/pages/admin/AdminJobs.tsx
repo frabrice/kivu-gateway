@@ -44,15 +44,24 @@ export default function AdminJobs() {
     setForm(rest)
     setOpen(true)
   }
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
     const payload = { ...form, employmentType: form.type === 'Job' ? form.employmentType : undefined }
-    if (editingId) updateOpportunity(editingId, payload)
-    else addOpportunity(payload)
-    setOpen(false)
+    try {
+      if (editingId) await updateOpportunity(editingId, payload)
+      else await addOpportunity(payload)
+      setOpen(false)
+    } catch (err) {
+      alert(err instanceof Error ? err.message : 'Something went wrong saving this listing.')
+    }
   }
-  function handleDelete(id: string, title: string) {
-    if (confirm(`Delete "${title}"? This cannot be undone.`)) deleteOpportunity(id)
+  async function handleDelete(id: string, title: string) {
+    if (!confirm(`Delete "${title}"? This cannot be undone.`)) return
+    try {
+      await deleteOpportunity(id)
+    } catch (err) {
+      alert(err instanceof Error ? err.message : 'Something went wrong deleting this listing.')
+    }
   }
 
   const sorted = [...opportunities].sort((a, b) => a.deadline.localeCompare(b.deadline))

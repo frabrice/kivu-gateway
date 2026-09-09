@@ -24,6 +24,7 @@ import AdminBusinesses from './pages/admin/AdminBusinesses'
 import AdminEvents from './pages/admin/AdminEvents'
 import AdminJobs from './pages/admin/AdminJobs'
 import AdminLifestyle from './pages/admin/AdminLifestyle'
+import AdminSubmissions from './pages/admin/AdminSubmissions'
 
 export default function App() {
   return (
@@ -56,6 +57,7 @@ export default function App() {
           <Route path="events" element={<AdminEvents />} />
           <Route path="jobs" element={<AdminJobs />} />
           <Route path="lifestyle" element={<AdminLifestyle />} />
+          <Route path="submissions" element={<AdminSubmissions />} />
         </Route>
       </Routes>
     </>

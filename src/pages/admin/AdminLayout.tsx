@@ -1,5 +1,8 @@
-import { Link, NavLink, Outlet } from 'react-router-dom'
-import { Briefcase, CalendarDays, LayoutDashboard, LogOut, Newspaper, Store, ExternalLink } from 'lucide-react'
+import { useEffect, useState } from 'react'
+import { Link, NavLink, Outlet, useNavigate } from 'react-router-dom'
+import type { Session } from '@supabase/supabase-js'
+import { Briefcase, CalendarDays, Inbox, LayoutDashboard, LogOut, Newspaper, Store, ExternalLink } from 'lucide-react'
+import { supabase } from '../../lib/supabase'
 
 const LINKS = [
   { to: '/admin', label: 'Overview', icon: LayoutDashboard, end: true },
@@ -7,9 +10,40 @@ const LINKS = [
   { to: '/admin/events', label: 'Events', icon: CalendarDays, end: false },
   { to: '/admin/jobs', label: 'Jobs', icon: Briefcase, end: false },
   { to: '/admin/lifestyle', label: 'Lifestyle', icon: Newspaper, end: false },
+  { to: '/admin/submissions', label: 'Submissions', icon: Inbox, end: false },
 ]
 
 export default function AdminLayout() {
+  const navigate = useNavigate()
+  const [session, setSession] = useState<Session | null | undefined>(undefined)
+
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data }) => setSession(data.session))
+    const { data: listener } = supabase.auth.onAuthStateChange((_event, newSession) => {
+      setSession(newSession)
+    })
+    return () => listener.subscription.unsubscribe()
+  }, [])
+
+  useEffect(() => {
+    if (session === null) navigate('/admin/login', { replace: true })
+  }, [session, navigate])
+
+  async function handleSignOut() {
+    await supabase.auth.signOut()
+    navigate('/admin/login', { replace: true })
+  }
+
+  if (session === undefined) {
+    return (
+      <div className="flex min-h-screen items-center justify-center bg-navy-50">
+        <span className="text-sm font-semibold text-navy-400">Loading…</span>
+      </div>
+    )
+  }
+
+  if (session === null) return null
+
   return (
     <div className="flex min-h-screen bg-navy-50">
       <aside className="hidden w-64 shrink-0 flex-col border-r border-navy-100 bg-white lg:flex">
@@ -40,9 +74,12 @@ export default function AdminLayout() {
           <Link to="/" className="flex items-center gap-2.5 rounded-md px-3 py-2.5 text-sm font-semibold text-navy-500 hover:bg-navy-50">
             <ExternalLink size={17} /> View Site
           </Link>
-          <Link to="/admin/login" className="flex items-center gap-2.5 rounded-md px-3 py-2.5 text-sm font-semibold text-navy-500 hover:bg-navy-50">
+          <button
+            onClick={handleSignOut}
+            className="flex w-full items-center gap-2.5 rounded-md px-3 py-2.5 text-left text-sm font-semibold text-navy-500 hover:bg-navy-50"
+          >
             <LogOut size={17} /> Sign Out
-          </Link>
+          </button>
         </div>
       </aside>
 

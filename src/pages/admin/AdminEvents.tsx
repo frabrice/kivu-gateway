@@ -42,14 +42,23 @@ export default function AdminEvents() {
     setForm(rest)
     setOpen(true)
   }
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    if (editingId) updateEvent(editingId, form)
-    else addEvent(form)
-    setOpen(false)
+    try {
+      if (editingId) await updateEvent(editingId, form)
+      else await addEvent(form)
+      setOpen(false)
+    } catch (err) {
+      alert(err instanceof Error ? err.message : 'Something went wrong saving this event.')
+    }
   }
-  function handleDelete(id: string, title: string) {
-    if (confirm(`Delete "${title}"? This cannot be undone.`)) deleteEvent(id)
+  async function handleDelete(id: string, title: string) {
+    if (!confirm(`Delete "${title}"? This cannot be undone.`)) return
+    try {
+      await deleteEvent(id)
+    } catch (err) {
+      alert(err instanceof Error ? err.message : 'Something went wrong deleting this event.')
+    }
   }
 
   const sorted = [...events].sort((a, b) => a.date.localeCompare(b.date))

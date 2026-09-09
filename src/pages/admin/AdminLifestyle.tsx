@@ -47,15 +47,24 @@ export default function AdminLifestyle() {
     setForm(rest)
     setOpen(true)
   }
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
     const payload = { ...form, slug: form.slug || slugify(form.title) }
-    if (editingId) updateArticle(editingId, payload)
-    else addArticle(payload)
-    setOpen(false)
+    try {
+      if (editingId) await updateArticle(editingId, payload)
+      else await addArticle(payload)
+      setOpen(false)
+    } catch (err) {
+      alert(err instanceof Error ? err.message : 'Something went wrong saving this article.')
+    }
   }
-  function handleDelete(id: string, title: string) {
-    if (confirm(`Delete "${title}"? This cannot be undone.`)) deleteArticle(id)
+  async function handleDelete(id: string, title: string) {
+    if (!confirm(`Delete "${title}"? This cannot be undone.`)) return
+    try {
+      await deleteArticle(id)
+    } catch (err) {
+      alert(err instanceof Error ? err.message : 'Something went wrong deleting this article.')
+    }
   }
 
   const sorted = [...articles].sort((a, b) => b.publishedDate.localeCompare(a.publishedDate))

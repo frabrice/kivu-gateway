@@ -33,7 +33,7 @@ export default function Header() {
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
         <Logo />
 
-        <nav className="hidden items-center gap-6 lg:flex">
+        <nav className="hidden items-center gap-6 xl:flex">
           {NAV_ITEMS.map((item) =>
             isDropdown(item) ? (
               <div
@@ -90,7 +90,7 @@ export default function Header() {
 
         <Link
           to="/get-listed"
-          className="hidden shrink-0 items-center rounded-md bg-blue-500 px-5 py-2.5 text-sm font-bold text-white transition hover:bg-blue-600 lg:inline-flex"
+          className="hidden shrink-0 items-center rounded-md bg-blue-500 px-5 py-2.5 text-sm font-bold text-white transition hover:bg-blue-600 xl:inline-flex"
         >
           Get Listed →
         </Link>
@@ -98,7 +98,7 @@ export default function Header() {
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
-          className="inline-flex items-center justify-center rounded-md p-2 text-navy-700 lg:hidden"
+          className="inline-flex items-center justify-center rounded-md p-2 text-navy-700 xl:hidden"
           aria-label="Toggle menu"
         >
           {open ? <X size={26} /> : <Menu size={26} />}
@@ -106,7 +106,7 @@ export default function Header() {
       </div>
 
       {open && (
-        <div className="border-t border-navy-100 bg-white lg:hidden">
+        <div className="border-t border-navy-100 bg-white xl:hidden">
           <nav className="mx-auto flex max-w-7xl flex-col gap-1 px-4 py-4 sm:px-6">
             {NAV_ITEMS.map((item) =>
               isDropdown(item) ? (
