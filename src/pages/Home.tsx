@@ -80,6 +80,7 @@ export default function Home() {
               title={pillar.title}
               description={pillar.short}
               to={pillar.to}
+              image={pillar.image}
             />
           ))}
         </div>

@@ -45,6 +45,7 @@ export type Pillar = {
   title: string
   short: string
   to: string
+  image: string
 }
 
 export const PILLARS: Pillar[] = [
@@ -53,36 +54,42 @@ export const PILLARS: Pillar[] = [
     title: 'Explore the Region',
     short: 'Goma, Masisi and Virunga — plus the Gisenyi–Goma border guide.',
     to: '/explore',
+    image: 'https://images.unsplash.com/photo-1509897739002-791fa79aac9b?auto=format&fit=crop&w=500&q=55',
   },
   {
     id: 'start-business',
     title: 'Start a Business',
     short: 'Everything you need to set up and register in Goma.',
     to: '/business/start',
+    image: 'https://images.unsplash.com/photo-1573164574397-dd250bc8a598?auto=format&fit=crop&w=500&q=55',
   },
   {
     id: 'directory',
     title: 'Business Directory',
     short: 'Find trusted hotels, restaurants, services and more.',
     to: '/business/directory',
+    image: 'https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=500&q=55',
   },
   {
     id: 'events',
     title: 'Events',
     short: "What's happening in Goma and Gisenyi, and when.",
     to: '/events',
+    image: 'https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=500&q=55',
   },
   {
     id: 'opportunities',
     title: 'Jobs',
     short: 'Jobs and tenders from local companies and NGOs.',
     to: '/jobs',
+    image: 'https://images.unsplash.com/photo-1664575600796-ffa828c5cb6e?auto=format&fit=crop&w=500&q=55',
   },
   {
     id: 'journal',
     title: 'Lifestyle',
     short: 'Lifestyle guides — best cafés, hotels and local tips.',
     to: '/lifestyle',
+    image: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=500&q=55',
   },
 ]
 
