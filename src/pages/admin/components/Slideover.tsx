@@ -14,7 +14,7 @@ export default function Slideover({ open, title, onClose, children }: SlideoverP
   return (
     <div className="fixed inset-0 z-50 flex justify-end">
       <div className="absolute inset-0 bg-navy-900/40" onClick={onClose} />
-      <div className="relative flex h-full w-full flex-col overflow-y-auto bg-white shadow-xl sm:w-[70%] sm:min-w-[560px] lg:max-w-3xl">
+      <div className="relative flex h-full w-full flex-col overflow-y-auto bg-white shadow-xl sm:w-3/5 sm:min-w-[560px]">
         <div className="flex items-center justify-between border-b border-navy-100 px-6 py-4">
           <h2 className="font-heading text-base font-bold text-navy-700">{title}</h2>
           <button type="button" onClick={onClose} className="rounded-md p-1.5 text-navy-400 hover:bg-navy-50" aria-label="Close">
