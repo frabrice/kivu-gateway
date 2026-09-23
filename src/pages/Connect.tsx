@@ -1,51 +1,51 @@
 import { Link } from 'react-router-dom'
-import { ArrowRight, CalendarDays, MapPin, Newspaper, Route } from 'lucide-react'
+import { ArrowRight, Briefcase, CalendarDays, HeartHandshake, Users } from 'lucide-react'
 import PageHero from '../components/layout/PageHero'
 import { useDocumentTitle } from '../hooks/useDocumentTitle'
 
 const TRACKS = [
   {
-    icon: MapPin,
-    title: 'Destinations',
-    description: 'Goma, the Masisi highlands and Virunga National Park — tourism, culture and nature.',
-    to: '/explore/destinations',
-    cta: 'Discover Destinations',
+    icon: Users,
+    title: 'Business Matchmaking',
+    description: 'Tell us who you are and what you need — we connect businesses, investors and partners directly.',
+    to: '/get-listed',
+    cta: 'Get Matched',
   },
   {
-    icon: Route,
-    title: 'Travel & Border Guide',
-    description: 'Documents, process and timing for crossing between Gisenyi and Goma.',
-    to: '/explore/travel',
-    cta: 'Read the Guide',
+    icon: Briefcase,
+    title: 'Jobs & Tenders',
+    description: 'Connecting companies and NGOs with talent — browse open jobs and tenders across the region.',
+    to: '/jobs',
+    cta: 'View Jobs & Tenders',
   },
   {
     icon: CalendarDays,
     title: 'Events',
-    description: "What's happening in Goma and Gisenyi — business forums, music nights and more.",
+    description: 'Business forums, networking nights and community events where connections happen in person.',
     to: '/events',
     cta: 'See Events',
   },
   {
-    icon: Newspaper,
-    title: 'Insights',
-    description: 'Best cafés, best stays and local guides for getting around the region.',
-    to: '/insights',
-    cta: 'Read Insights',
+    icon: HeartHandshake,
+    title: 'Partnerships & NGOs',
+    description: 'Working with an NGO, expert or organization? Reach out and let\'s find the right fit.',
+    to: '/contact',
+    cta: 'Talk To Us',
   },
 ]
 
-export default function Explore() {
+export default function Connect() {
   useDocumentTitle(
-    'Explore Kivu',
-    'Discover destinations, hotels, restaurants, experiences, events and lifestyle across Goma and Gisenyi.',
+    'Connect',
+    'Connect with businesses, investors, organizations, entrepreneurs, professionals and local partners across Goma and Gisenyi.',
   )
 
   return (
     <>
       <PageHero
-        title="Explore Kivu"
-        subtitle="Discover destinations, hotels, restaurants, experiences, events and lifestyle across Goma and Gisenyi."
-        image="https://images.unsplash.com/photo-1589715718565-223fdf9b7cd4?auto=format&fit=crop&w=1400&q=55"
+        title="Connect"
+        subtitle="Connect with businesses, investors, organizations, entrepreneurs, professionals and local partners across Goma and Gisenyi."
+        image="https://images.unsplash.com/photo-1664575600796-ffa828c5cb6e?auto=format&fit=crop&w=1400&q=55"
       />
 
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">

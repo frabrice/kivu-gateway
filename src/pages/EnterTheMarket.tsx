@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Banknote, CheckCircle2, FileText, HeartHandshake } from 'lucide-react'
+import { Banknote, CheckCircle2, FileText, Rocket } from 'lucide-react'
 import PageHero from '../components/layout/PageHero'
 import SectionHeading from '../components/shared/SectionHeading'
 import CTABand from '../components/shared/CTABand'
@@ -21,20 +21,24 @@ const FUNDING = [
 ]
 
 const SUPPORT = [
-  { title: 'Business Registration Support', detail: 'Guidance through the Guichet Unique process, document checklists, and referrals to local legal advisors.' },
-  { title: 'Tax & Accounting', detail: 'Introductions to accountants and tax advisors familiar with DRC compliance requirements.' },
-  { title: 'Investor & Partner Introductions', detail: 'Connections to investors, distributors and partners already active in the Goma market.' },
-  { title: 'Market Entry Research', detail: 'Local insight on your sector, competitors and what a realistic launch looks like in Goma.' },
+  { title: 'Market Research', detail: 'Local insight on your sector, competitors, pricing and what a realistic launch looks like in Goma and Gisenyi.' },
+  { title: 'Product Launch', detail: 'Guidance on introducing a new product or service to the market, from positioning to launch logistics.' },
+  { title: 'Distribution', detail: 'Connections to distributors, retailers and logistics partners already active across the region.' },
+  { title: 'Product Activation', detail: 'On-the-ground support to get your product in front of real customers — sampling, demos and local marketing.' },
+  { title: 'Local Partnerships', detail: 'Introductions to investors, distributors and partners who can help you enter the market with confidence.' },
 ]
 
-export default function BusinessStart() {
-  useDocumentTitle('Start a Business in Goma', 'A practical guide to starting a business in Goma, DR Congo — registration requirements, funding options and local support services.')
+export default function EnterTheMarket() {
+  useDocumentTitle(
+    'Enter the Market',
+    'Market research, product launch, distribution and local partnerships for entrepreneurs and investors entering Goma and Gisenyi.',
+  )
 
   return (
     <>
       <PageHero
-        title="Start a Business in Goma"
-        subtitle="A practical starting point for entrepreneurs and investors setting up operations in Goma."
+        title="Enter the Market"
+        subtitle="Market research, product launch, distribution, activation and local partnerships — everything you need to enter Goma and Gisenyi with confidence."
         image="https://images.unsplash.com/photo-1573164574397-dd250bc8a598?auto=format&fit=crop&w=1400&q=45"
       />
 
@@ -77,11 +81,11 @@ export default function BusinessStart() {
 
         <div className="mt-16">
           <div className="flex items-center gap-2">
-            <HeartHandshake size={20} className="text-blue-600" />
+            <Rocket size={20} className="text-blue-600" />
             <span className="text-xs font-bold uppercase tracking-[0.2em] text-blue-600">How We Help</span>
           </div>
-          <h2 className="mt-2 font-heading text-2xl font-bold text-navy-700 sm:text-3xl">Support services for new businesses</h2>
-          <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2">
+          <h2 className="mt-2 font-heading text-2xl font-bold text-navy-700 sm:text-3xl">Market-entry support</h2>
+          <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {SUPPORT.map((item) => (
               <div key={item.title} className="rounded-xl border border-navy-100 bg-white p-6 shadow-card">
                 <h3 className="font-heading text-base font-bold text-navy-700">{item.title}</h3>
@@ -93,8 +97,8 @@ export default function BusinessStart() {
       </section>
 
       <CTABand
-        title="Ready to start in Goma?"
-        description="Tell us about your business idea and where you're stuck — registration, funding, or finding the right partners."
+        title="Ready to enter the market?"
+        description="Tell us about your product or business idea and where you're stuck — registration, funding, distribution or finding the right partners."
         primaryLabel="Get Started"
       />
     </>

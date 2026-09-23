@@ -3,25 +3,13 @@ export type NavItem = NavLink | { label: string; children: NavLink[] }
 
 export const NAV_ITEMS: NavItem[] = [
   { label: 'Home', to: '/' },
-  {
-    label: 'Explore',
-    children: [
-      { label: 'Destinations', to: '/explore', description: 'Goma, Masisi & Virunga' },
-      { label: 'Travel & Border Guide', to: '/explore/travel', description: 'Crossing Gisenyi ⇄ Goma' },
-    ],
-  },
-  {
-    label: 'Business',
-    children: [
-      { label: 'Start a Business', to: '/business/start', description: 'Setup guide for Goma' },
-      { label: 'Directory', to: '/business/directory', description: 'Find a business' },
-    ],
-  },
-  { label: 'Events', to: '/events' },
-  { label: 'Jobs', to: '/jobs' },
-  { label: 'Lifestyle', to: '/lifestyle' },
-  { label: 'About Us', to: '/about' },
-  { label: 'Contact', to: '/contact' },
+  { label: 'Explore', to: '/explore' },
+  { label: 'Do Business', to: '/business' },
+  { label: 'Enter the Market', to: '/enter-the-market' },
+  { label: 'Invest & Source', to: '/invest-source' },
+  { label: 'Connect', to: '/connect' },
+  { label: 'Insights', to: '/insights' },
+  { label: 'About', to: '/about' },
 ]
 
 export const CONTACT = {
@@ -41,7 +29,7 @@ export const STATS = [
 ]
 
 export type Pillar = {
-  id: 'explore' | 'start-business' | 'directory' | 'events' | 'opportunities' | 'journal'
+  id: 'explore' | 'do-business' | 'enter-market' | 'invest-source' | 'connect' | 'insights'
   title: string
   short: string
   to: string
@@ -51,44 +39,44 @@ export type Pillar = {
 export const PILLARS: Pillar[] = [
   {
     id: 'explore',
-    title: 'Explore the Region',
-    short: 'Goma, Masisi and Virunga — plus the Gisenyi–Goma border guide.',
+    title: 'Explore Kivu',
+    short: 'Destinations, hotels, restaurants, events and lifestyle across Goma & Gisenyi.',
     to: '/explore',
     image: 'https://images.unsplash.com/photo-1509897739002-791fa79aac9b?auto=format&fit=crop&w=500&q=55',
   },
   {
-    id: 'start-business',
-    title: 'Start a Business',
-    short: 'Everything you need to set up and register in Goma.',
-    to: '/business/start',
-    image: 'https://images.unsplash.com/photo-1573164574397-dd250bc8a598?auto=format&fit=crop&w=500&q=55',
-  },
-  {
-    id: 'directory',
-    title: 'Business Directory',
-    short: 'Find trusted hotels, restaurants, services and more.',
-    to: '/business/directory',
+    id: 'do-business',
+    title: 'Do Business',
+    short: 'Find trusted local businesses, professional services, properties and suppliers.',
+    to: '/business',
     image: 'https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=500&q=55',
   },
   {
-    id: 'events',
-    title: 'Events',
-    short: "What's happening in Goma and Gisenyi, and when.",
-    to: '/events',
-    image: 'https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=500&q=55',
+    id: 'enter-market',
+    title: 'Enter the Market',
+    short: 'Market research, product launch, distribution and local partnerships.',
+    to: '/enter-the-market',
+    image: 'https://images.unsplash.com/photo-1573164574397-dd250bc8a598?auto=format&fit=crop&w=500&q=55',
   },
   {
-    id: 'opportunities',
-    title: 'Jobs',
-    short: 'Jobs and tenders from local companies and NGOs.',
-    to: '/jobs',
+    id: 'invest-source',
+    title: 'Invest & Source',
+    short: 'Investment opportunities, local products, suppliers and projects.',
+    to: '/invest-source',
+    image: 'https://images.unsplash.com/photo-1655682604476-96976c1917fb?auto=format&fit=crop&w=500&q=55',
+  },
+  {
+    id: 'connect',
+    title: 'Connect',
+    short: 'Business matchmaking with companies, NGOs, experts and investors.',
+    to: '/connect',
     image: 'https://images.unsplash.com/photo-1664575600796-ffa828c5cb6e?auto=format&fit=crop&w=500&q=55',
   },
   {
-    id: 'journal',
-    title: 'Lifestyle',
-    short: 'Lifestyle guides — best cafés, hotels and local tips.',
-    to: '/lifestyle',
+    id: 'insights',
+    title: 'Insights',
+    short: 'Guides and intelligence for doing business and living in Goma & Gisenyi.',
+    to: '/insights',
     image: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=500&q=55',
   },
 ]

@@ -92,7 +92,7 @@ export default function Header() {
           to="/get-listed"
           className="hidden shrink-0 items-center rounded-md bg-blue-500 px-5 py-2.5 text-sm font-bold text-white transition hover:bg-blue-600 xl:inline-flex"
         >
-          Get Listed →
+          I Want To Enter Kivu →
         </Link>
 
         <button
@@ -148,7 +148,7 @@ export default function Header() {
               to="/get-listed"
               className="mt-2 inline-flex items-center justify-center rounded-md bg-blue-500 px-5 py-3 text-sm font-bold text-white"
             >
-              Get Listed →
+              I Want To Enter Kivu →
             </Link>
           </nav>
         </div>

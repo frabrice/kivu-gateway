@@ -9,8 +9,8 @@ import type { ArticleCategory } from '../data/types'
 
 const CATEGORIES: ArticleCategory[] = ['Food & Cafés', 'Stay & Hotels', 'Guides', 'Nature & Wildlife']
 
-export default function Lifestyle() {
-  useDocumentTitle('Lifestyle', 'Lifestyle guides for Goma and Gisenyi — best cafés, best hotels, border guides and more.')
+export default function Insights() {
+  useDocumentTitle('Insights', 'Guides and intelligence for doing business and living in Goma and Gisenyi — best cafés, best hotels, border guides and more.')
   const { articles } = useData()
   const [category, setCategory] = useState('All')
 
@@ -26,8 +26,8 @@ export default function Lifestyle() {
   return (
     <>
       <PageHero
-        title="Lifestyle"
-        subtitle="Lifestyle guides for Goma and Gisenyi — best cafés, best hotels, border guides and more."
+        title="Insights"
+        subtitle="Guides and intelligence for doing business and living in Goma and Gisenyi — best cafés, best hotels, border guides and more."
         image="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1400&q=45"
       />
 

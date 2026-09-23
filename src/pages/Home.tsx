@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { ArrowRight, Briefcase, CalendarDays, Compass, Newspaper, Rocket, Store, type LucideIcon } from 'lucide-react'
+import { ArrowRight, Compass, HeartHandshake, Newspaper, Rocket, Store, TrendingUp, type LucideIcon } from 'lucide-react'
 import WhatsAppButton from '../components/layout/WhatsAppButton'
 import SectionHeading from '../components/shared/SectionHeading'
 import ServiceCard from '../components/shared/ServiceCard'
@@ -13,11 +13,11 @@ import { DESTINATIONS, PILLARS } from '../data/site'
 
 const PILLAR_ICONS: Record<string, LucideIcon> = {
   explore: Compass,
-  'start-business': Rocket,
-  directory: Store,
-  events: CalendarDays,
-  opportunities: Briefcase,
-  journal: Newspaper,
+  'do-business': Store,
+  'enter-market': Rocket,
+  'invest-source': TrendingUp,
+  connect: HeartHandshake,
+  insights: Newspaper,
 }
 
 export default function Home() {
@@ -56,10 +56,10 @@ export default function Home() {
           </p>
           <div className="flex flex-wrap items-center gap-4">
             <Link
-              to="/business/start"
+              to="/enter-the-market"
               className="inline-flex items-center gap-2 rounded-md bg-blue-500 px-7 py-3.5 text-sm font-bold text-white transition hover:bg-blue-600"
             >
-              Start a Business <ArrowRight size={16} />
+              Enter the Market <ArrowRight size={16} />
             </Link>
             <WhatsAppButton />
           </div>
@@ -107,12 +107,12 @@ export default function Home() {
           <SectionHeading eyebrow="Explore The Region" title="Goma, Masisi & Virunga" />
           <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-3">
             {DESTINATIONS.map((destination) => (
-              <DestinationCard key={destination.id} destination={destination} to={`/explore#${destination.id}`} />
+              <DestinationCard key={destination.id} destination={destination} to={`/explore/destinations#${destination.id}`} />
             ))}
           </div>
           <div className="mt-10 flex justify-center">
             <Link
-              to="/explore"
+              to="/explore/destinations"
               className="inline-flex items-center gap-2 rounded-md border-2 border-navy-600 px-7 py-3 text-sm font-bold text-navy-600 transition hover:bg-navy-600 hover:text-white"
             >
               Explore The Region <ArrowRight size={16} />
@@ -136,12 +136,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Lifestyle */}
+      {/* Insights */}
       <section className="bg-navy-50 py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-end justify-between gap-4">
-            <SectionHeading align="left" eyebrow="Lifestyle" title="Latest From Lifestyle" />
-            <Link to="/lifestyle" className="text-sm font-bold text-blue-600 hover:text-blue-700">
+            <SectionHeading align="left" eyebrow="Insights" title="Latest Insights" />
+            <Link to="/insights" className="text-sm font-bold text-blue-600 hover:text-blue-700">
               Read More →
             </Link>
           </div>

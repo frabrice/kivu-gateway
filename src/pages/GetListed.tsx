@@ -13,7 +13,7 @@ const TYPE_OPTIONS: { id: ListingType; icon: typeof Store; title: string; descri
   { id: 'business', icon: Store, title: 'Feature My Business', description: 'Get listed in the directory' },
   { id: 'job', icon: Briefcase, title: 'Post a Job or Tender', description: 'Reach the region' },
   { id: 'event', icon: CalendarDays, title: 'Submit an Event', description: 'Goma or Gisenyi' },
-  { id: 'article', icon: Newspaper, title: 'Pitch a Lifestyle Story', description: 'Cafés, hotels, guides' },
+  { id: 'article', icon: Newspaper, title: 'Pitch an Insight Story', description: 'Guides, cafés, hotels' },
 ]
 
 const inputClass = 'mt-1.5 w-full rounded-md border border-navy-100 px-4 py-2.5 text-sm outline-none focus:border-blue-500'
@@ -49,7 +49,7 @@ function isListingType(value: string | null): value is ListingType {
 }
 
 export default function GetListed() {
-  useDocumentTitle('Get Listed', 'List your business, post a job or tender, submit an event, or pitch a Lifestyle story on Kivu Gateway.')
+  useDocumentTitle('Get Listed', 'List your business, post a job or tender, submit an event, or pitch an Insights story on Kivu Gateway.')
   const { addSubmission } = useData()
   const [searchParams] = useSearchParams()
   const initialType = searchParams.get('type')
