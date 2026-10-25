@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 import Hero from '../components/home/Hero'
-import Marquee from '../components/home/Marquee'
+import StatsStrip from '../components/home/StatsStrip'
 import PillarShowcase from '../components/home/PillarShowcase'
 import HowItWorks from '../components/home/HowItWorks'
 import ClosingCTA from '../components/home/ClosingCTA'
@@ -33,7 +33,7 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <Marquee />
+      <StatsStrip />
 
       {/* Six ways in */}
       <section className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">

@@ -37,7 +37,7 @@ export default {
       keyframes: {
         kenburns: {
           '0%': { transform: 'scale(1.04) translate3d(0, 0, 0)' },
-          '100%': { transform: 'scale(1.17) translate3d(-1.5%, -1%, 0)' },
+          '100%': { transform: 'scale(1.1) translate3d(-1%, -0.6%, 0)' },
         },
         fadeUp: {
           '0%': { opacity: '0', transform: 'translate3d(0, 26px, 0)' },
