@@ -12,6 +12,12 @@ dist
 dist-ssr
 *.local
 
+# Original full-size photos (optimized copies live in public/images)
+source-images
+
+# Supabase CLI cache
+supabase/.temp
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

@@ -10,6 +10,7 @@ import ArticleCard from '../components/shared/ArticleCard'
 import { useDocumentTitle } from '../hooks/useDocumentTitle'
 import { useData } from '../data/store'
 import { DESTINATIONS, PILLARS } from '../data/site'
+import { IMG } from '../data/images'
 
 const PILLAR_ICONS: Record<string, LucideIcon> = {
   explore: Compass,
@@ -38,8 +39,9 @@ export default function Home() {
       {/* Hero */}
       <section className="relative overflow-hidden bg-navy-700">
         <img
-          src="https://images.unsplash.com/photo-1589715718565-223fdf9b7cd4?auto=format&fit=crop&w=1600&q=55"
-          alt="Lake Kivu shoreline near Goma and Gisenyi"
+          src={IMG.gomaVolcano}
+          alt="Colourful Goma rooftops beneath the volcano"
+          style={{ objectPosition: 'center 38%' }}
           className="absolute inset-0 h-full w-full object-cover"
           fetchPriority="high"
           decoding="async"

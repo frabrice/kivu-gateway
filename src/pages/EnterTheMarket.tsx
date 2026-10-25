@@ -4,6 +4,7 @@ import PageHero from '../components/layout/PageHero'
 import SectionHeading from '../components/shared/SectionHeading'
 import CTABand from '../components/shared/CTABand'
 import { useDocumentTitle } from '../hooks/useDocumentTitle'
+import { IMG } from '../data/images'
 
 const REQUIREMENTS = [
   'Choose a business structure (sole proprietorship, SARL/limited company, etc.) suited to your activity',
@@ -39,7 +40,8 @@ export default function EnterTheMarket() {
       <PageHero
         title="Enter the Market"
         subtitle="Market research, product launch, distribution, activation and local partnerships — everything you need to enter Goma and Gisenyi with confidence."
-        image="https://images.unsplash.com/photo-1573164574397-dd250bc8a598?auto=format&fit=crop&w=1400&q=45"
+        image={IMG.drinksDistribution}
+        position="center 40%"
       />
 
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">

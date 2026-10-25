@@ -6,6 +6,7 @@ import CTABand from '../components/shared/CTABand'
 import { useDocumentTitle } from '../hooks/useDocumentTitle'
 import { useData } from '../data/store'
 import type { ArticleCategory } from '../data/types'
+import { IMG } from '../data/images'
 
 const CATEGORIES: ArticleCategory[] = ['Food & Cafés', 'Stay & Hotels', 'Guides', 'Nature & Wildlife']
 
@@ -28,7 +29,8 @@ export default function Insights() {
       <PageHero
         title="Insights"
         subtitle="Guides and intelligence for doing business and living in Goma and Gisenyi — best cafés, best hotels, border guides and more."
-        image="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1400&q=45"
+        image={IMG.gomaVolcano}
+        position="center 30%"
       />
 
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">

@@ -4,6 +4,7 @@ import SectionHeading from '../components/shared/SectionHeading'
 import CTABand from '../components/shared/CTABand'
 import { useDocumentTitle } from '../hooks/useDocumentTitle'
 import { STATS } from '../data/site'
+import { IMG } from '../data/images'
 
 const VALUES = [
   { icon: Handshake, title: 'Trust', description: 'Every business we list and every guide we publish is checked — we put our name behind it.' },
@@ -27,14 +28,14 @@ export default function About() {
       <PageHero
         title="About Kivu Gateway"
         subtitle="We are the connection point between people, businesses and opportunities in Goma and Gisenyi."
-        image="https://images.unsplash.com/photo-1514548383638-cef9251a73ec?auto=format&fit=crop&w=1400&q=45"
+        image={IMG.lakeTownBay}
       />
 
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <img
-            src="https://images.unsplash.com/photo-1675793049324-32d4932eafff?auto=format&fit=crop&w=1000&q=55"
-            alt="Lake Kivu shoreline between Gisenyi and Goma"
+            src={IMG.lakesideResort}
+            alt="Aerial view of a lakeside resort on Lake Kivu"
             className="h-72 w-full rounded-2xl object-cover shadow-card sm:h-96"
             loading="lazy"
             decoding="async"

@@ -6,14 +6,16 @@ type PageHeroProps = {
   title: string
   subtitle?: string
   image: string
+  position?: string
 }
 
-export default function PageHero({ eyebrow, title, subtitle, image }: PageHeroProps) {
+export default function PageHero({ eyebrow, title, subtitle, image, position = 'center' }: PageHeroProps) {
   return (
     <div className="relative overflow-hidden bg-navy-700">
       <img
         src={image}
         alt=""
+        style={{ objectPosition: position }}
         className="absolute inset-0 h-full w-full object-cover opacity-40"
         fetchPriority="high"
         decoding="async"

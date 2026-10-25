@@ -7,6 +7,7 @@ import CTABand from '../components/shared/CTABand'
 import { useDocumentTitle } from '../hooks/useDocumentTitle'
 import { useData } from '../data/store'
 import type { BusinessCategory, City } from '../data/types'
+import { IMG } from '../data/images'
 
 const CATEGORIES: BusinessCategory[] = [
   'Stay',
@@ -40,7 +41,8 @@ export default function BusinessDirectory() {
       <PageHero
         title="Business Directory"
         subtitle="Trusted hotels, restaurants, professional services and more across Goma and Gisenyi."
-        image="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1400&q=45"
+        image={IMG.fashionStorefront}
+        position="center 40%"
       />
 
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">

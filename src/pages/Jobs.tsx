@@ -6,6 +6,7 @@ import CTABand from '../components/shared/CTABand'
 import { useDocumentTitle } from '../hooks/useDocumentTitle'
 import { useData } from '../data/store'
 import type { OpportunityType } from '../data/types'
+import { IMG } from '../data/images'
 
 const TYPES: OpportunityType[] = ['Job', 'Tender']
 
@@ -27,7 +28,8 @@ export default function Jobs() {
       <PageHero
         title="Jobs"
         subtitle="Jobs and tenders from companies and NGOs working across Goma, Gisenyi and North Kivu."
-        image="https://images.unsplash.com/photo-1573164574572-cb89e39749b4?auto=format&fit=crop&w=1400&q=42"
+        image={IMG.cartPorter}
+        position="center 30%"
       />
 
       <section className="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">

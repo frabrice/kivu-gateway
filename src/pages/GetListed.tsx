@@ -6,6 +6,7 @@ import WhatsAppButton from '../components/layout/WhatsAppButton'
 import { useDocumentTitle } from '../hooks/useDocumentTitle'
 import { useData } from '../data/store'
 import type { ArticleCategory, BusinessCategory, City } from '../data/types'
+import { IMG } from '../data/images'
 
 type ListingType = 'business' | 'job' | 'event' | 'article'
 
@@ -89,7 +90,8 @@ export default function GetListed() {
       <PageHero
         title="Get Listed"
         subtitle="Tell us what you want to share — a business, a job or tender, an event, or a story — and we'll take it from there."
-        image="https://images.unsplash.com/photo-1573164574397-dd250bc8a598?auto=format&fit=crop&w=1400&q=45"
+        image={IMG.fashionStorefront}
+        position="center 40%"
       />
 
       <section className="mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8">

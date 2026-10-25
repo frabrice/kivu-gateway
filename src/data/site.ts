@@ -1,3 +1,5 @@
+import { IMG } from './images'
+
 export type NavLink = { label: string; to: string; description?: string }
 export type NavItem = NavLink | { label: string; children: NavLink[] }
 
@@ -42,42 +44,42 @@ export const PILLARS: Pillar[] = [
     title: 'Explore Kivu',
     short: 'Destinations, hotels, restaurants, events and lifestyle across Goma & Gisenyi.',
     to: '/explore',
-    image: 'https://images.unsplash.com/photo-1509897739002-791fa79aac9b?auto=format&fit=crop&w=500&q=55',
+    image: IMG.lakeAerialPortrait,
   },
   {
     id: 'do-business',
     title: 'Do Business',
     short: 'Find trusted local businesses, professional services, properties and suppliers.',
     to: '/business',
-    image: 'https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=500&q=55',
+    image: IMG.roundaboutMoto,
   },
   {
     id: 'enter-market',
     title: 'Enter the Market',
     short: 'Market research, product launch, distribution and local partnerships.',
     to: '/enter-the-market',
-    image: 'https://images.unsplash.com/photo-1573164574397-dd250bc8a598?auto=format&fit=crop&w=500&q=55',
+    image: IMG.drinksDistribution,
   },
   {
     id: 'invest-source',
     title: 'Invest & Source',
     short: 'Investment opportunities, local products, suppliers and projects.',
     to: '/invest-source',
-    image: 'https://images.unsplash.com/photo-1655682604476-96976c1917fb?auto=format&fit=crop&w=500&q=55',
+    image: IMG.marketGrainSellers,
   },
   {
     id: 'connect',
     title: 'Connect',
     short: 'Business matchmaking with companies, NGOs, experts and investors.',
     to: '/connect',
-    image: 'https://images.unsplash.com/photo-1664575600796-ffa828c5cb6e?auto=format&fit=crop&w=500&q=55',
+    image: IMG.intersectionTraffic,
   },
   {
     id: 'insights',
     title: 'Insights',
     short: 'Guides and intelligence for doing business and living in Goma & Gisenyi.',
     to: '/insights',
-    image: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=500&q=55',
+    image: IMG.lakeTownBay,
   },
 ]
 
@@ -95,7 +97,7 @@ export const DESTINATIONS: Destination[] = [
     id: 'goma',
     name: 'Goma',
     tags: 'Business · Culture · Lake Kivu',
-    image: 'https://images.unsplash.com/photo-1589715718565-223fdf9b7cd4?auto=format&fit=crop&w=1200&q=55',
+    image: IMG.lakeAerialPortrait,
     description:
       'A major Eastern DRC commercial hub on the shores of Lake Kivu, blending business opportunity with vibrant Congolese culture, markets and music — just across the border from Gisenyi.',
     activities: ['Business networking', 'Local markets', 'Lakeside dining', 'Live music'],
@@ -104,7 +106,7 @@ export const DESTINATIONS: Destination[] = [
     id: 'masisi',
     name: 'Masisi',
     tags: 'Highlands · Farming Communities · Nature',
-    image: 'https://images.unsplash.com/photo-1630509866948-7ebf55e1685f?auto=format&fit=crop&w=1200&q=55',
+    image: IMG.waterCarriers,
     description:
       'A highland territory of terraced hills and farming communities west of Goma — a quieter, greener side of North Kivu for those wanting to see rural life in the region.',
     activities: ['Highland scenery', 'Community visits', 'Farming country', 'Cooler climate'],
@@ -113,7 +115,7 @@ export const DESTINATIONS: Destination[] = [
     id: 'virunga',
     name: 'Virunga National Park',
     tags: 'Gorilla Trekking · Volcanoes · Wildlife',
-    image: 'https://images.unsplash.com/photo-1509897739002-791fa79aac9b?auto=format&fit=crop&w=1200&q=50',
+    image: IMG.gomaVolcano,
     description:
       "Africa's oldest national park and one of the last places on Earth to trek mountain gorillas in the wild, set against the Virunga volcanic range north of Goma.",
     activities: ['Gorilla trekking', 'Volcano views', 'Ranger-led tours', 'Rainforest wildlife'],

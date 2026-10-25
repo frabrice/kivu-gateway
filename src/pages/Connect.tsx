@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { ArrowRight, Briefcase, CalendarDays, HeartHandshake, Users } from 'lucide-react'
 import PageHero from '../components/layout/PageHero'
 import { useDocumentTitle } from '../hooks/useDocumentTitle'
+import { IMG } from '../data/images'
 
 const TRACKS = [
   {
@@ -45,7 +46,8 @@ export default function Connect() {
       <PageHero
         title="Connect"
         subtitle="Connect with businesses, investors, organizations, entrepreneurs, professionals and local partners across Goma and Gisenyi."
-        image="https://images.unsplash.com/photo-1664575600796-ffa828c5cb6e?auto=format&fit=crop&w=1400&q=55"
+        image={IMG.intersectionTraffic}
+        position="center 55%"
       />
 
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">

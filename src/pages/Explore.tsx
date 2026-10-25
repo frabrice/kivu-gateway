@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { ArrowRight, CalendarDays, MapPin, Newspaper, Route } from 'lucide-react'
 import PageHero from '../components/layout/PageHero'
 import { useDocumentTitle } from '../hooks/useDocumentTitle'
+import { IMG } from '../data/images'
 
 const TRACKS = [
   {
@@ -45,7 +46,8 @@ export default function Explore() {
       <PageHero
         title="Explore Kivu"
         subtitle="Discover destinations, hotels, restaurants, experiences, events and lifestyle across Goma and Gisenyi."
-        image="https://images.unsplash.com/photo-1589715718565-223fdf9b7cd4?auto=format&fit=crop&w=1400&q=55"
+        image={IMG.lakeAerialPortrait}
+        position="center 60%"
       />
 
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">

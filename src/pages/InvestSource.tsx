@@ -4,6 +4,7 @@ import PageHero from '../components/layout/PageHero'
 import SectionHeading from '../components/shared/SectionHeading'
 import CTABand from '../components/shared/CTABand'
 import { useDocumentTitle } from '../hooks/useDocumentTitle'
+import { IMG } from '../data/images'
 
 const OPPORTUNITIES = [
   'Equity and joint-venture opportunities in growing local businesses',
@@ -38,7 +39,8 @@ export default function InvestSource() {
       <PageHero
         title="Invest & Source"
         subtitle="Discover investment opportunities, local products, projects, businesses and suppliers across Goma and Gisenyi."
-        image="https://images.unsplash.com/photo-1655682604476-96976c1917fb?auto=format&fit=crop&w=1400&q=45"
+        image={IMG.marketVegetables}
+        position="center 65%"
       />
 
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">

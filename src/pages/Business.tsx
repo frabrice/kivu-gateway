@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { ArrowRight, Briefcase, Building2, Store, Truck } from 'lucide-react'
 import PageHero from '../components/layout/PageHero'
 import { useDocumentTitle } from '../hooks/useDocumentTitle'
+import { IMG } from '../data/images'
 
 const CATEGORIES = [
   { icon: Store, label: 'Hotels & Restaurants' },
@@ -18,7 +19,7 @@ export default function Business() {
       <PageHero
         title="Do Business"
         subtitle="Find local businesses, suppliers, professionals, services and commercial opportunities across Goma and Gisenyi."
-        image="https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=1400&q=45"
+        image={IMG.roundaboutMoto}
       />
 
       <section className="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">

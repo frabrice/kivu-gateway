@@ -55,7 +55,7 @@ export function ImageListField({ label, images, onChange }: ImageListFieldProps)
           <div key={i} className="flex items-center gap-2">
             <input
               className={inputClass + ' mt-0'}
-              placeholder="https://images.unsplash.com/..."
+              placeholder="/images/photo-name.webp"
               value={img}
               onChange={(e) => updateAt(i, e.target.value)}
             />

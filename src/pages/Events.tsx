@@ -6,6 +6,7 @@ import CTABand from '../components/shared/CTABand'
 import { useDocumentTitle } from '../hooks/useDocumentTitle'
 import { useData } from '../data/store'
 import type { City } from '../data/types'
+import { IMG } from '../data/images'
 
 const CITIES: City[] = ['Goma', 'Gisenyi']
 
@@ -27,7 +28,8 @@ export default function Events() {
       <PageHero
         title="Events"
         subtitle="Business forums, music nights, community days and more — happening in Goma and Gisenyi."
-        image="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=1400&q=40"
+        image={IMG.lakesideMarket}
+        position="center 60%"
       />
 
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">

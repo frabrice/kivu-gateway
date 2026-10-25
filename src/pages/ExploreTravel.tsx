@@ -4,6 +4,7 @@ import PageHero from '../components/layout/PageHero'
 import SectionHeading from '../components/shared/SectionHeading'
 import CTABand from '../components/shared/CTABand'
 import { useDocumentTitle } from '../hooks/useDocumentTitle'
+import { IMG } from '../data/images'
 
 const DOCUMENTS = [
   'Valid passport (required for all non-EAC/non-Congolese travelers)',
@@ -34,7 +35,8 @@ export default function ExploreTravel() {
       <PageHero
         title="Gisenyi ⇄ Goma Border Guide"
         subtitle="What to bring, what to expect, and how long it actually takes to cross at the Grande Barrière."
-        image="https://images.unsplash.com/photo-1675793049324-32d4932eafff?auto=format&fit=crop&w=1400&q=45"
+        image={IMG.streetMotoTraffic}
+        position="center 55%"
       />
 
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">

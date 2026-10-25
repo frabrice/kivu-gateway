@@ -5,6 +5,7 @@ import SectionHeading from '../components/shared/SectionHeading'
 import CTABand from '../components/shared/CTABand'
 import { useDocumentTitle } from '../hooks/useDocumentTitle'
 import { DESTINATIONS } from '../data/site'
+import { IMG } from '../data/images'
 
 export default function ExploreDestinations() {
   useDocumentTitle('Destinations', 'Discover Goma, the Masisi highlands and Virunga National Park — nature, culture and gorilla trekking around Lake Kivu.')
@@ -15,7 +16,8 @@ export default function ExploreDestinations() {
         eyebrow="Destinations"
         title="Goma, Masisi & Virunga"
         subtitle="Goma, the Masisi highlands and Virunga National Park — nature, culture and adventure around Lake Kivu."
-        image="https://images.unsplash.com/photo-1509897739002-791fa79aac9b?auto=format&fit=crop&w=1400&q=45"
+        image={IMG.gomaVolcano}
+        position="center 35%"
       />
 
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">

@@ -5,6 +5,7 @@ import WhatsAppButton from '../components/layout/WhatsAppButton'
 import SectionHeading from '../components/shared/SectionHeading'
 import { useDocumentTitle } from '../hooks/useDocumentTitle'
 import { CONTACT } from '../data/site'
+import { IMG } from '../data/images'
 
 const TOPICS = ['Entering the Market', 'Business Directory Listing', 'Invest & Source', 'Travel & Border', 'Events', 'Jobs & Tenders', 'Insights / Press', 'Other']
 
@@ -22,7 +23,8 @@ export default function Contact() {
       <PageHero
         title="Contact Us"
         subtitle="Tell us what you're looking for and our team will get back to you within one business day."
-        image="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1400&q=45"
+        image={IMG.lakesideResort}
+        position="center 55%"
       />
 
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
