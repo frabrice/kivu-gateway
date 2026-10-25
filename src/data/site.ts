@@ -1,9 +1,8 @@
 import { IMG } from './images'
 
-export type NavLink = { label: string; to: string; description?: string }
-export type NavItem = NavLink | { label: string; children: NavLink[] }
+export type NavLink = { label: string; to: string }
 
-export const NAV_ITEMS: NavItem[] = [
+export const NAV_ITEMS: NavLink[] = [
   { label: 'Home', to: '/' },
   { label: 'Explore', to: '/explore' },
   { label: 'Do Business', to: '/business' },

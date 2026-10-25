@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom'
 import { Mail, MapPin, MessageCircle, Phone } from 'lucide-react'
 import Logo from './Logo'
-import { CONTACT, NAV_ITEMS, STATS, type NavItem } from '../../data/site'
+import { CONTACT, NAV_ITEMS, STATS } from '../../data/site'
 
-const FOOTER_LINKS = NAV_ITEMS.flatMap((item: NavItem) => ('children' in item ? item.children : [item]))
+const FOOTER_LINKS = NAV_ITEMS
 
 export default function Footer() {
   return (

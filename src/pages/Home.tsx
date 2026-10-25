@@ -1,25 +1,21 @@
 import { Link } from 'react-router-dom'
-import { ArrowRight, Compass, HeartHandshake, Newspaper, Rocket, Store, TrendingUp, type LucideIcon } from 'lucide-react'
-import WhatsAppButton from '../components/layout/WhatsAppButton'
+import { ArrowRight } from 'lucide-react'
+import Hero from '../components/home/Hero'
+import Marquee from '../components/home/Marquee'
+import PillarShowcase from '../components/home/PillarShowcase'
+import HowItWorks from '../components/home/HowItWorks'
+import ClosingCTA from '../components/home/ClosingCTA'
+import Reveal from '../components/shared/Reveal'
 import SectionHeading from '../components/shared/SectionHeading'
-import ServiceCard from '../components/shared/ServiceCard'
 import DestinationCard from '../components/shared/DestinationCard'
 import BusinessCard from '../components/shared/BusinessCard'
 import EventCard from '../components/shared/EventCard'
 import ArticleCard from '../components/shared/ArticleCard'
 import { useDocumentTitle } from '../hooks/useDocumentTitle'
 import { useData } from '../data/store'
-import { DESTINATIONS, PILLARS } from '../data/site'
-import { IMG } from '../data/images'
+import { DESTINATIONS } from '../data/site'
 
-const PILLAR_ICONS: Record<string, LucideIcon> = {
-  explore: Compass,
-  'do-business': Store,
-  'enter-market': Rocket,
-  'invest-source': TrendingUp,
-  connect: HeartHandshake,
-  insights: Newspaper,
-}
+const STAGGER = 'flex flex-col [&>*]:flex-1'
 
 export default function Home() {
   useDocumentTitle(
@@ -36,124 +32,104 @@ export default function Home() {
 
   return (
     <>
-      {/* Hero */}
-      <section className="relative overflow-hidden bg-navy-700">
-        <img
-          src={IMG.gomaVolcano}
-          alt="Colourful Goma rooftops beneath the volcano"
-          style={{ objectPosition: 'center 38%' }}
-          className="absolute inset-0 h-full w-full object-cover"
-          fetchPriority="high"
-          decoding="async"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-navy-800 via-navy-800/85 to-navy-700/30" />
+      <Hero />
+      <Marquee />
 
-        <div className="relative mx-auto flex max-w-7xl flex-col gap-6 px-4 py-24 sm:px-6 lg:px-8">
-          <h1 className="max-w-xl font-heading text-4xl font-bold leading-tight text-white sm:text-5xl">
-            Your Gateway <span className="block text-blue-500">to Goma &amp; Gisenyi</span>
-          </h1>
-          <p className="max-w-md text-base text-navy-100 sm:text-lg">
-            Start a business, cross the border, explore the region, find local businesses and see what's happening —
-            all in one place.
-          </p>
-          <div className="flex flex-wrap items-center gap-4">
-            <Link
-              to="/enter-the-market"
-              className="inline-flex items-center gap-2 rounded-md bg-blue-500 px-7 py-3.5 text-sm font-bold text-white transition hover:bg-blue-600"
-            >
-              Enter the Market <ArrowRight size={16} />
-            </Link>
-            <WhatsAppButton />
-          </div>
-
-          <div className="mt-4 inline-flex w-fit items-center gap-3 rounded-full bg-white/10 px-4 py-2 text-xs font-bold uppercase tracking-widest text-white backdrop-blur-sm">
-            Gisenyi <span className="text-blue-500">⇄</span> Goma
-          </div>
+      {/* Six ways in */}
+      <section className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
+        <Reveal>
+          <SectionHeading
+            align="left"
+            eyebrow="Six ways in"
+            title="Whatever brought you to Kivu, start here."
+            description="Pick a door. Each one opens onto the people, places and opportunities behind it."
+          />
+        </Reveal>
+        <div className="mt-12">
+          <PillarShowcase />
         </div>
       </section>
 
-      {/* Pillars */}
-      <section className="relative z-10 mx-auto -mt-12 max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
-          {PILLARS.map((pillar) => (
-            <ServiceCard
-              key={pillar.id}
-              icon={PILLAR_ICONS[pillar.id]}
-              title={pillar.title}
-              description={pillar.short}
-              to={pillar.to}
-              image={pillar.image}
-            />
-          ))}
-        </div>
-      </section>
+      <HowItWorks />
 
       {/* Featured businesses */}
-      <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-        <div className="flex flex-wrap items-end justify-between gap-4">
+      <section className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
+        <Reveal className="flex flex-wrap items-end justify-between gap-4">
           <SectionHeading align="left" eyebrow="Business Directory" title="Featured Businesses" />
-          <Link to="/business/directory" className="text-sm font-bold text-blue-600 hover:text-blue-700">
-            View Full Directory →
+          <Link to="/business/directory" className="group inline-flex items-center gap-1.5 text-sm font-bold text-blue-600 hover:text-blue-700">
+            View Full Directory <ArrowRight size={15} className="transition-transform group-hover:translate-x-1" />
           </Link>
-        </div>
-        <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {featuredBusinesses.map((business) => (
-            <BusinessCard key={business.id} business={business} />
+        </Reveal>
+        <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {featuredBusinesses.map((business, i) => (
+            <Reveal key={business.id} delay={i * 110} className={STAGGER}>
+              <BusinessCard business={business} />
+            </Reveal>
           ))}
         </div>
       </section>
 
       {/* Explore the region */}
-      <section className="bg-navy-50 py-20">
+      <section className="bg-navy-50 py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <SectionHeading eyebrow="Explore The Region" title="Goma, Masisi & Virunga" />
-          <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-3">
-            {DESTINATIONS.map((destination) => (
-              <DestinationCard key={destination.id} destination={destination} to={`/explore/destinations#${destination.id}`} />
+          <Reveal>
+            <SectionHeading eyebrow="Explore The Region" title="Goma, Masisi & Virunga" />
+          </Reveal>
+          <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-3">
+            {DESTINATIONS.map((destination, i) => (
+              <Reveal key={destination.id} delay={i * 130} className={STAGGER}>
+                <DestinationCard destination={destination} to={`/explore/destinations#${destination.id}`} />
+              </Reveal>
             ))}
           </div>
-          <div className="mt-10 flex justify-center">
+          <Reveal className="mt-12 flex justify-center">
             <Link
               to="/explore/destinations"
-              className="inline-flex items-center gap-2 rounded-md border-2 border-navy-600 px-7 py-3 text-sm font-bold text-navy-600 transition hover:bg-navy-600 hover:text-white"
+              className="group inline-flex items-center gap-2 rounded-full border-2 border-navy-600 px-8 py-3.5 text-sm font-bold text-navy-600 transition hover:bg-navy-600 hover:text-white"
             >
-              Explore The Region <ArrowRight size={16} />
+              Explore The Region <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
             </Link>
-          </div>
+          </Reveal>
         </div>
       </section>
 
       {/* Upcoming events */}
-      <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-        <div className="flex flex-wrap items-end justify-between gap-4">
+      <section className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
+        <Reveal className="flex flex-wrap items-end justify-between gap-4">
           <SectionHeading align="left" eyebrow="What's On" title="Upcoming Events" />
-          <Link to="/events" className="text-sm font-bold text-blue-600 hover:text-blue-700">
-            View All Events →
+          <Link to="/events" className="group inline-flex items-center gap-1.5 text-sm font-bold text-blue-600 hover:text-blue-700">
+            View All Events <ArrowRight size={15} className="transition-transform group-hover:translate-x-1" />
           </Link>
-        </div>
-        <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {upcomingEvents.map((event) => (
-            <EventCard key={event.id} event={event} />
+        </Reveal>
+        <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {upcomingEvents.map((event, i) => (
+            <Reveal key={event.id} delay={i * 110} className={STAGGER}>
+              <EventCard event={event} />
+            </Reveal>
           ))}
         </div>
       </section>
 
       {/* Insights */}
-      <section className="bg-navy-50 py-20">
+      <section className="bg-navy-50 py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap items-end justify-between gap-4">
+          <Reveal className="flex flex-wrap items-end justify-between gap-4">
             <SectionHeading align="left" eyebrow="Insights" title="Latest Insights" />
-            <Link to="/insights" className="text-sm font-bold text-blue-600 hover:text-blue-700">
-              Read More →
+            <Link to="/insights" className="group inline-flex items-center gap-1.5 text-sm font-bold text-blue-600 hover:text-blue-700">
+              Read More <ArrowRight size={15} className="transition-transform group-hover:translate-x-1" />
             </Link>
-          </div>
-          <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {latestArticles.map((article) => (
-              <ArticleCard key={article.id} article={article} />
+          </Reveal>
+          <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {latestArticles.map((article, i) => (
+              <Reveal key={article.id} delay={i * 110} className={STAGGER}>
+                <ArticleCard article={article} />
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
+
+      <ClosingCTA />
     </>
   )
 }

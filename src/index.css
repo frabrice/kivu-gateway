@@ -14,3 +14,29 @@ body {
 h1, h2, h3, h4 {
   @apply font-heading;
 }
+
+@layer utilities {
+  .text-stroke {
+    color: transparent;
+    -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.4);
+  }
+  .text-stroke-faint {
+    color: transparent;
+    -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.13);
+  }
+}
+
+/* Visitors who ask their device to reduce motion get a calm, static site. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+  }
+}
